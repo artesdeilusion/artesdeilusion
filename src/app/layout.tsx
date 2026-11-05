@@ -68,9 +68,6 @@ export const metadata: Metadata = {
     title: SITE.title,
     description: SITE.subtitle,
   },
-  icons: {
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
-  },
 };
 
 const structuredData = {
