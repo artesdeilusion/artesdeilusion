@@ -19,6 +19,13 @@ import styles from "@/styles/site.module.css";
 export const metadata: Metadata = {
   title: "About",
   description: ABOUT.body,
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About · Artes de Ilusión",
+    description: ABOUT.body,
+    url: "https://artesdeilusion.com/about",
+    type: "website",
+  },
 };
 
 const SECTOR_ICONS: LucideIcon[] = [

@@ -5,8 +5,15 @@ import { ALLOCATION, APPROACH } from "@/lib/site";
 import styles from "@/styles/site.module.css";
 
 export const metadata: Metadata = {
-  title: "Investments",
+  title: "Investments — How we invest and work",
   description: APPROACH.intro,
+  alternates: { canonical: "/investments" },
+  openGraph: {
+    title: "Investments · Artes de Ilusión",
+    description: APPROACH.intro,
+    url: "https://artesdeilusion.com/investments",
+    type: "article",
+  },
 };
 
 export default function InvestmentsPage() {

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Unbounded } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { SITE } from "@/lib/site";
+import { NAV, SITE } from "@/lib/site";
 import styles from "@/styles/site.module.css";
 import "./globals.css";
 
@@ -24,6 +24,37 @@ export const metadata: Metadata = {
     template: `%s · ${SITE.name}`,
   },
   description: SITE.subtitle,
+  applicationName: SITE.name,
+  authors: [{ name: SITE.name, url: SITE.url }],
+  creator: SITE.name,
+  publisher: SITE.name,
+  category: "business",
+  keywords: [
+    "Artes de Ilusión",
+    "artesdeilusion.com",
+    "AI companies",
+    "software companies",
+    "artificial intelligence investment",
+    "software investment group",
+    "operating group",
+    "venture building",
+    "digital products",
+    "Istanbul AI companies",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     title: SITE.title,
     description: SITE.subtitle,
@@ -39,6 +70,37 @@ export const metadata: Metadata = {
   },
 };
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE.url}/#organization`,
+      name: SITE.name,
+      url: SITE.url,
+      logo: `${SITE.url}/logo.png`,
+      description: SITE.subtitle,
+      email: SITE.email,
+      sameAs: [],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE.url}/#website`,
+      url: SITE.url,
+      name: SITE.name,
+      description: SITE.subtitle,
+      publisher: { "@id": `${SITE.url}/#organization` },
+      inLanguage: "en",
+    },
+    ...NAV.map((item) => ({
+      "@type": "WebPage",
+      name: `${item.label} · ${SITE.name}`,
+      url: `${SITE.url}${item.href}`,
+      isPartOf: { "@id": `${SITE.url}/#website` },
+    })),
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -47,6 +109,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${brand.variable} ${body.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         <div className={styles.shell}>
           <SiteHeader />
           {children}

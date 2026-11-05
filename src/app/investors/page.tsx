@@ -8,6 +8,13 @@ import styles from "@/styles/site.module.css";
 export const metadata: Metadata = {
   title: "Investors",
   description: INVESTORS.body,
+  alternates: { canonical: "/investors" },
+  openGraph: {
+    title: "Investors · Artes de Ilusión",
+    description: INVESTORS.body,
+    url: "https://artesdeilusion.com/investors",
+    type: "website",
+  },
 };
 
 export default function InvestorsPage() {

@@ -12,7 +12,15 @@ import styles from "@/styles/site.module.css";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "How and when to reach Artes de Ilusión.",
+  description:
+    "Contact Artes de Ilusión — investor relations, co-building and ventures, holdings, press and introductions. Email info@artesdeilusion.com.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact · Artes de Ilusión",
+    description: "How and when to reach Artes de Ilusión.",
+    url: "https://artesdeilusion.com/contact",
+    type: "website",
+  },
 };
 
 const TOPIC_ICONS: LucideIcon[] = [
