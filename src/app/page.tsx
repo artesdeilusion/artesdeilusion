@@ -3,26 +3,26 @@ import {
   ArrowRight,
   ArrowUpRight,
   Building2,
-  CalendarDays,
   Globe2,
   Sparkles,
   Square,
+  Workflow,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { CitiesMarquee } from "@/components/cities-marquee";
 import { CtaBand } from "@/components/cta-band";
-import { ALLOCATION, PORTFOLIO, SITE, SNAPSHOT } from "@/lib/site";
+import { ALLOCATION, APPROACH, SITE, SNAPSHOT } from "@/lib/site";
 import styles from "@/styles/site.module.css";
 
 const SNAPSHOT_ICONS: Record<string, LucideIcon> = {
-  Founded: CalendarDays,
-  "Core holdings": Building2,
-  Cities: Globe2,
+  Companies: Building2,
   "Main focus": Sparkles,
+  Cities: Globe2,
+  "In operations": Workflow,
 };
 
 export default function HomePage() {
-  const preview = PORTFOLIO.items.slice(0, 3);
+  const preview = APPROACH.sections.slice(0, 4);
 
   return (
     <main id="top">
@@ -32,7 +32,6 @@ export default function HomePage() {
           <span className={styles.heroGlow} />
           <span className={styles.cornerTL} />
           <span className={styles.cornerBR} />
-          <span className={styles.heroYear}>{SITE.founded}</span>
         </div>
         <div className={styles.heroInner}>
           <div className={styles.heroMeta}>
@@ -52,7 +51,7 @@ export default function HomePage() {
               className={styles.metaDot}
               aria-hidden
             />
-            <span>Est. {SITE.founded}</span>
+            <span>Operator-led</span>
           </div>
           <p className={styles.heroEyebrow}>{SITE.name}</p>
           <h1 id="brand" className={styles.brand}>
@@ -151,32 +150,35 @@ export default function HomePage() {
         <div className={styles.sectionAltInner}>
           <div className={styles.sectionHead}>
             <p className={styles.kicker}>Investments</p>
-            <h2 id="home-investments">Where we invest.</h2>
-            <p>Notes on the areas we focus on and why.</p>
+            <h2 id="home-investments">How we invest.</h2>
+            <p>
+              We are an operating group, not a passive fund. Capital is where a
+              relationship starts — most of what we bring shows up in the work
+              that follows.
+            </p>
           </div>
           <ul className={styles.holdings}>
-            {preview.map((item, index) => (
-              <li key={item.id}>
-                <a href={`/investments#${item.id}`}>
+            {preview.map((section, index) => (
+              <li key={section.heading}>
+                <Link href="/investments">
                   <span className={styles.holdIndex}>
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <p className={styles.holdSector}>{item.sector}</p>
-                    <h3>{item.name}</h3>
-                    <p>{item.thesis}</p>
+                    <h3>{section.heading}</h3>
+                    <p>{section.body[0]}</p>
                   </div>
                   <ArrowUpRight
                     className={styles.workArrow}
                     size={18}
                     aria-hidden
                   />
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
           <Link className={styles.textLink} href="/investments">
-            Read the research
+            Read how we invest
             <ArrowRight size={15} aria-hidden />
           </Link>
         </div>

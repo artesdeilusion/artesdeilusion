@@ -1,47 +1,39 @@
 import type { Metadata } from "next";
 import { CtaBand } from "@/components/cta-band";
 import { PageHero } from "@/components/page-hero";
-import { ALLOCATION, PORTFOLIO } from "@/lib/site";
+import { ALLOCATION, APPROACH } from "@/lib/site";
 import styles from "@/styles/site.module.css";
 
 export const metadata: Metadata = {
   title: "Investments",
-  description: PORTFOLIO.intro,
+  description: APPROACH.intro,
 };
 
 export default function InvestmentsPage() {
   return (
     <main>
       <PageHero
-        kicker={PORTFOLIO.kicker}
-        title={PORTFOLIO.title}
-        body={PORTFOLIO.intro}
+        kicker={APPROACH.kicker}
+        title={APPROACH.title}
+        body={APPROACH.intro}
       />
 
-      <section className={styles.section} aria-label="Investment research">
-        <div className={styles.researchList}>
-          {PORTFOLIO.items.map((item, index) => (
-            <article key={item.id} className={styles.researchCard} id={item.id}>
-              <header className={styles.researchHead}>
-                <span className={styles.holdIndex}>
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <p className={styles.holdSector}>{item.sector}</p>
-                  <h2>{item.name}</h2>
-                </div>
-              </header>
+      <section className={styles.section} aria-label="How we invest">
+        <article className={styles.article}>
+          <p className={styles.articleLead}>{APPROACH.lead}</p>
 
-              <p className={styles.researchThesis}>{item.thesis}</p>
-
-              <div className={styles.researchBody}>
-                {item.research.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </div>
-            </article>
+          {APPROACH.sections.map((section, index) => (
+            <section key={section.heading} className={styles.articleSection}>
+              <p className={styles.articleIndex} aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </p>
+              <h2>{section.heading}</h2>
+              {section.body.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </section>
           ))}
-        </div>
+        </article>
       </section>
 
       <section className={styles.thesis} aria-labelledby="alloc-title">
@@ -51,7 +43,8 @@ export default function InvestmentsPage() {
             Where we spend time.
           </h2>
           <p className={styles.thesisBody}>
-            Rough mix of where we spend attention. Not audited financials.
+            A rough mix of where our attention goes across the group. These are
+            not audited financials — just an honest picture of our focus.
           </p>
           <div className={styles.alloc}>
             <ul>
