@@ -28,7 +28,7 @@ export const tr = {
   globe: {
     kicker: "Ayak izi",
     title: "Haritanın üzerinde.",
-    body: "Çalıştığımız şehirleri görmek için üzerine gelin.",
+    body: "Dünyayı sürükleyin. Pin için şehir işaretine dokunun.",
     aria: "Çalıştığımız şehirler",
   },
   snapshot: {

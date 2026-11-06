@@ -28,7 +28,7 @@ export const en = {
   globe: {
     kicker: "Footprint",
     title: "Across the map.",
-    body: "Hover a city to see where we operate.",
+    body: "Drag the globe. Tap a city marker for the pin.",
     aria: "Cities we work across",
   },
   snapshot: {
