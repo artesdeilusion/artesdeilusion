@@ -36,7 +36,7 @@ export const en = {
     items: [
       { value: "Multi", label: "Companies", icon: "Companies" },
       { value: "AI", label: "Main focus", icon: "Main focus" },
-      { value: "10+", label: "Cities", icon: "Cities" },
+      { value: "7", label: "Cities", icon: "Cities" },
       { value: "Daily", label: "In operations", icon: "In operations" },
     ],
   },
@@ -221,7 +221,7 @@ export const en = {
     stats: [
       { value: "Multi", label: "Operating companies" },
       { value: "AI", label: "Main focus" },
-      { value: "10+", label: "Cities we operate from" },
+      { value: "7", label: "Cities we operate from" },
       { value: "Daily", label: "In the work" },
     ],
     deskKicker: "IR desk",

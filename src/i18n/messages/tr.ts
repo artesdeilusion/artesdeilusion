@@ -36,7 +36,7 @@ export const tr = {
     items: [
       { value: "Çoklu", label: "Şirket", icon: "Companies" },
       { value: "YZ", label: "Ana odak", icon: "Main focus" },
-      { value: "10+", label: "Şehir", icon: "Cities" },
+      { value: "7", label: "Şehir", icon: "Cities" },
       { value: "Günlük", label: "Operasyonda", icon: "In operations" },
     ],
   },
@@ -221,7 +221,7 @@ export const tr = {
     stats: [
       { value: "Çoklu", label: "İşletilen şirket" },
       { value: "YZ", label: "Ana odak" },
-      { value: "10+", label: "Çalıştığımız şehir" },
+      { value: "7", label: "Çalıştığımız şehir" },
       { value: "Günlük", label: "İşin içinde" },
     ],
     deskKicker: "Yatırımcı masası",
