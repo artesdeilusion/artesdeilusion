@@ -24,8 +24,8 @@ export default function NotFound() {
               Back home
               <ArrowRight size={15} aria-hidden />
             </Link>
-            <Link className={styles.ctaGhost} href="/contact">
-              Contact
+            <Link className={styles.ctaGhost} href="/investors">
+              Investors
               <ArrowRight size={15} aria-hidden />
             </Link>
           </div>

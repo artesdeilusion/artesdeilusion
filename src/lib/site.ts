@@ -13,7 +13,6 @@ export const NAV = [
   { label: "About", href: "/about" },
   { label: "Investments", href: "/investments" },
   { label: "Investors", href: "/investors" },
-  { label: "Contact", href: "/contact" },
 ] as const;
 
 export const CITIES = [
@@ -194,40 +193,6 @@ export const ALLOCATION = [
   { label: "Consumer Digital", weight: 18 },
   { label: "Venture Building", weight: 12 },
 ] as const;
-
-export const CONTACT_GUIDE = {
-  intro:
-    "Write with a clear subject, keep it short, and say plainly what you need from us. A few honest lines will always get a better reply than a long, polished one.",
-  topics: [
-    {
-      title: "Investor relations",
-      body: "A portfolio overview, a partnership conversation, or a call with the team.",
-      subject: "IR — introduction",
-    },
-    {
-      title: "Co-building & ventures",
-      body: "New company ideas or partnerships where we can lead product and operations alongside you.",
-      subject: "Venture — proposal",
-    },
-    {
-      title: "Holdings & companies",
-      body: "Questions about a company in the group. For product support, reach that company directly and you will get there faster.",
-      subject: "Holding — [company name]",
-    },
-    {
-      title: "Press & introductions",
-      body: "Media, speaking, or introductions. Include context, any deadline, and exactly what you need.",
-      subject: "Press — request",
-    },
-  ],
-  how: [
-    "Email info@artesdeilusion.com.",
-    "Put the topic in the subject line using the guide above.",
-    "In a few lines: who you are, why you are writing, and the ask.",
-    "Attach only what helps — a short deck or one-pager if needed, nothing more.",
-  ],
-  note: "We read every message and usually reply within a few business days when there is a clear fit.",
-} as const;
 
 export const INVESTORS = {
   kicker: "Investors",

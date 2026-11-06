@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
-import { INVESTORS } from "@/lib/site";
+import { INVESTORS, SITE } from "@/lib/site";
 import styles from "@/styles/site.module.css";
 
 export const metadata: Metadata = {
@@ -59,10 +58,10 @@ export default function InvestorsPage() {
             {INVESTORS.ctaTitle}
           </h2>
           <p className={styles.ctaBandBody}>{INVESTORS.ctaBody}</p>
-          <Link className={styles.ctaPrimary} href="/contact">
-            Go to contact
+          <a className={styles.ctaPrimary} href={`mailto:${SITE.email}`}>
+            {SITE.email}
             <ArrowRight size={15} aria-hidden />
-          </Link>
+          </a>
         </div>
       </section>
     </main>

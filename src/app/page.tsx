@@ -46,10 +46,10 @@ export default function HomePage() {
           </h1>
           <p className={styles.lede}>{SITE.subtitle}</p>
           <div className={styles.ctaRow}>
-            <Link className={styles.ctaPrimary} href="/contact">
+            <a className={styles.ctaPrimary} href={`mailto:${SITE.email}`}>
               Get in touch
               <ArrowRight size={15} aria-hidden />
-            </Link>
+            </a>
             <Link className={styles.ctaGhost} href="/investments">
               View investments
               <ArrowRight size={15} aria-hidden />
