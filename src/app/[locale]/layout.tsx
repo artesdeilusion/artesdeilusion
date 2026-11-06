@@ -74,21 +74,6 @@ export async function generateMetadata({
       title: dict.meta.title,
       description: dict.meta.description,
     },
-    icons: {
-      icon: [
-        { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
-        { url: "/icon1.png", type: "image/png", sizes: "96x96" },
-      ],
-      apple: [
-        { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-      ],
-      other: [
-        {
-          rel: "apple-touch-icon-precomposed",
-          url: "/apple-touch-icon-precomposed.png",
-        },
-      ],
-    },
   };
 }
 
