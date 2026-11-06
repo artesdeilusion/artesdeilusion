@@ -248,7 +248,7 @@
 .compareHead,
 .compareRow {
   display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 0.95fr) minmax(0, 1.2fr);
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr) minmax(0, 1fr);
   gap: 1rem;
   align-items: baseline;
 }
@@ -262,7 +262,7 @@
   color: #8a8a8a;
 }
 
-.compareUsHead {
+.compareHeadAccent {
   color: var(--accent);
 }
 
@@ -288,28 +288,17 @@
   color: var(--ink-soft);
 }
 
-.compareFund {
-  font-size: 0.98rem;
-  color: #a3a3a3;
-}
-
-.compareFund s {
-  text-decoration: none;
-  background: linear-gradient(var(--accent), var(--accent)) no-repeat 0 55% / 0% 1.5px;
-  transition: background-size 520ms cubic-bezier(0.65, 0, 0.35, 1);
-  transition-delay: calc(500ms + var(--i) * 140ms);
-}
-
-.compare[data-inview="true"] .compareFund s {
-  background-size: 100% 1.5px;
-}
-
-.compareUs {
+.compareCell {
   font-family: var(--font-brand), system-ui, sans-serif;
-  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  font-size: clamp(0.98rem, 1.5vw, 1.15rem);
   font-weight: 700;
   letter-spacing: -0.03em;
+  line-height: 1.25;
   color: var(--ink);
+}
+
+.compareRow .compareCell:last-child {
+  color: #5c5c5c;
 }
 
 @media (max-width: 640px) {
@@ -774,7 +763,6 @@
   .heroLede,
   .heroFact,
   .compareRow,
-  .compareFund s,
   .allocSeg,
   .principlesNumTrack,
   .investorPoints li {

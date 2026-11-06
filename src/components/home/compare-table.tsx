@@ -18,10 +18,10 @@ export function CompareTable({ dict }: { dict: Dictionary }) {
     >
       <div className={styles.compareHead} role="row">
         <span role="columnheader" />
-        <span role="columnheader">{compare.fund}</span>
-        <span role="columnheader" className={styles.compareUsHead}>
-          {compare.us}
+        <span role="columnheader" className={styles.compareHeadAccent}>
+          {compare.built}
         </span>
+        <span role="columnheader">{compare.backed}</span>
       </div>
       {compare.rows.map((row, i) => (
         <div
@@ -33,11 +33,11 @@ export function CompareTable({ dict }: { dict: Dictionary }) {
           <span role="rowheader" className={styles.compareLabel}>
             {row.label}
           </span>
-          <span role="cell" className={styles.compareFund}>
-            <s>{row.fund}</s>
+          <span role="cell" className={styles.compareCell}>
+            {row.built}
           </span>
-          <span role="cell" className={styles.compareUs}>
-            {row.us}
+          <span role="cell" className={styles.compareCell}>
+            {row.backed}
           </span>
         </div>
       ))}

@@ -3,7 +3,7 @@ export const en = {
     title: "Artes de Ilusión — AI and software companies",
     titleTemplate: "%s · Artes de Ilusión",
     description:
-      "Artes de Ilusión owns and operates its own AI and software companies, funded by a small group of investors.",
+      "Artes de Ilusión builds its own AI and software companies and invests in startups, with capital from a small group of investors.",
   },
   nav: {
     about: "About",
@@ -14,9 +14,9 @@ export const en = {
     closeMenu: "Close menu",
   },
   hero: {
-    tagline: "We build and run our own companies.",
+    tagline: "We build companies and invest in them.",
     subtitle:
-      "Artes de Ilusión owns and operates AI and software companies. We don't invest in outside startups. Capital comes from a small group of investors and goes into the companies we run.",
+      "Artes de Ilusión starts and runs its own AI and software companies, and invests in startups outside the group. Capital for both comes from a small group of investors.",
     ctaPrimary: "Contact",
     ctaSecondary: "Investments",
   },
@@ -30,67 +30,67 @@ export const en = {
   snapshot: {
     aria: "Group snapshot",
     items: [
-      { value: "0", label: "Outside startups funded" },
-      { value: "100%", label: "Of our companies run by our teams" },
+      { value: "Build", label: "Companies we start and run" },
+      { value: "Back", label: "Startups we invest in" },
       { value: "7", label: "Cities" },
       { value: "AI", label: "Main focus" },
     ],
   },
   compare: {
-    kicker: "The difference",
-    fund: "A typical fund",
-    us: "Artes de Ilusión",
+    kicker: "Two ways we invest",
+    built: "Companies we build",
+    backed: "Startups we back",
     rows: [
       {
-        label: "Where companies come from",
-        fund: "Founders pitch them",
-        us: "We start them",
+        label: "Where they come from",
+        built: "We start them",
+        backed: "Founders we choose",
       },
       {
         label: "Who runs them",
-        fund: "The founders",
-        us: "Our own teams",
+        built: "Our own teams",
+        backed: "Their founders",
       },
       {
-        label: "What the money buys",
-        fund: "A minority stake",
-        us: "Control of the company",
+        label: "Our stake",
+        built: "Control",
+        backed: "A meaningful share",
       },
       {
-        label: "How long it's held",
-        fund: "Until an exit",
-        us: "For years",
+        label: "What we bring",
+        built: "Product, team, operations",
+        backed: "Capital and operating experience",
       },
       {
-        label: "What investors own",
-        fund: "A share of a fund",
-        us: "A share of the group",
+        label: "How long we stay",
+        built: "For years",
+        backed: "For the long run",
       },
     ],
   },
   home: {
     aboutKicker: "About",
-    aboutTitle: "An operator, not a fund.",
+    aboutTitle: "Operators who also invest.",
     aboutBody:
-      "We start companies, staff them and run them ourselves. We don't review pitch decks or take minority stakes in other people's businesses. Everything we put money into is something we operate.",
+      "We start companies, staff them and run them ourselves. We also invest in startups outside the group, in areas where our own operating experience is useful to the founders.",
     aboutLink: "About the group",
-    quote: "We only put money into companies we run ourselves.",
+    quote: "We invest in the kind of work we do ourselves.",
     approachKicker: "Allocation",
     approachTitle: "Where the capital goes.",
     approachBody:
-      "Investor capital is spread across the group's companies. Most of it goes to AI and software products already in operation.",
+      "Investor capital is split between the companies we build and the startups we back. Most of it goes to AI and software.",
     allocLabel: "Approximate share of capital and time",
     investmentsKicker: "Investments",
     investmentsTitle: "How investor capital is used.",
     investmentsBody:
-      "We raise from a limited number of investors and spend inside the group: on teams, infrastructure and products we already run.",
+      "We raise from a limited number of investors and put that capital into our own companies and into startups we invest in.",
     investmentsLink: "Read the details",
     copy: "Copy",
     copied: "Copied",
     investorsKicker: "Investors",
     investorsTitle: "We work with a small number of investors.",
     investorsBody:
-      "If you want exposure to companies we build and operate, write to us. We don't take startup pitches.",
+      "If you want exposure to the companies we build and the startups we back, write to us.",
     investorsLink: "Write to us",
   },
   allocation: {
@@ -101,27 +101,27 @@ export const en = {
   },
   about: {
     kicker: "About",
-    title: "An operator, not a fund.",
-    body: "Artes de Ilusión is a technology group that owns and operates its own companies in AI, software and digital products. We don't back outside founders. The companies in the group are started by us, run by our teams and funded by our investors.",
+    title: "Operators who also invest.",
+    body: "Artes de Ilusión is a technology group working in AI, software and digital products. We start and run our own companies, and we invest in startups outside the group. Both are funded by a small group of investors.",
     whatWeDoTitle: "What we do",
     whatWeDo:
-      "We decide what to build, hire the people to build it and run the company once it's live. Product, engineering, hiring and day-to-day operations are handled inside the group.",
+      "In our own companies, we decide what to build, hire the team and run the business once it's live. In the startups we back, we put in capital and help founders with product, hiring and operations when they ask.",
     whyAiTitle: "Why AI",
     whyAi:
       "Most of our new products are built on AI. We focus on software people use every week for real work, not on demos.",
-    quote: "We only put money into companies we run ourselves.",
+    quote: "We invest in the kind of work we do ourselves.",
     pillars: [
       {
         title: "Ownership",
-        body: "The companies in the group are ours. We hold control and carry the responsibility.",
+        body: "In the companies we build, we hold control and carry the responsibility.",
       },
       {
         title: "Operation",
-        body: "Our own teams run product, engineering and operations. Nothing is outsourced to a portfolio founder.",
+        body: "We run companies ourselves, so we know what founders deal with day to day.",
       },
       {
         title: "Long holding",
-        body: "We don't build companies to sell them quickly. We plan to run them for years.",
+        body: "We don't build or invest to sell quickly. We plan to stay for years.",
       },
     ],
     focusKicker: "Focus",
@@ -131,7 +131,7 @@ export const en = {
     sectors: [
       {
         title: "Artificial Intelligence",
-        body: "AI products and automation tools we build and operate.",
+        body: "AI products and automation tools we build or invest in.",
       },
       {
         title: "Software & SaaS",
@@ -166,8 +166,8 @@ export const en = {
         body: "Software businesses owned and run by the group.",
       },
       {
-        title: "Operating companies",
-        body: "Businesses where we handle strategy, product, team and delivery ourselves.",
+        title: "Startup investments",
+        body: "Stakes in AI and software startups outside the group, run by their founders.",
       },
       {
         title: "Shared technology",
@@ -183,48 +183,47 @@ export const en = {
     kicker: "Investments",
     title: "How investor capital is used.",
     intro:
-      "Who we take money from, what we spend it on and how we report back.",
-    lead: "Artes de Ilusión doesn't invest in outside startups. We raise capital from a small group of investors and use it to build and run our own companies. If you're a founder looking for funding, we're not the right place.",
+      "Who we take money from, where we put it and how we report back.",
+    lead: "Artes de Ilusión puts capital to work in two ways: companies we start and run ourselves, and startups outside the group that we invest in. The capital for both comes from a small group of investors.",
     sections: [
       {
-        heading: "We build, we don't pick",
+        heading: "Two ways in",
         body: [
-          "We don't run a deal flow or review pitch decks. Every company in the group is one we started or took over and now run with our own team.",
-          "This keeps the list short. We only take on what we can staff and operate ourselves.",
+          "Some companies we build ourselves, with our own team running product, engineering and operations. Others are startups founded by other people, where we invest and stay involved.",
+          "Both sides draw on the same people and the same operating experience.",
         ],
       },
       {
         heading: "A small group of investors",
         body: [
           "Capital comes from a limited number of investors. We don't run open rounds, and we don't take money from people we haven't met.",
-          "Investors get exposure to the group's companies as a whole, not to a single bet.",
+          "Investors get exposure to the whole group: the companies we build and the startups we back.",
         ],
       },
       {
-        heading: "Spending follows the work",
+        heading: "Where we invest",
         body: [
-          "Money goes to teams, infrastructure and products that are already running. New companies get funded when there's a team ready to build them.",
-          "We don't spend on marketing a company before it has a product people use.",
+          "We invest in AI, software and digital product startups, usually early, while product and operations still decide the outcome.",
+          "We back fewer companies than most investors, so we can stay useful to each one.",
         ],
       },
       {
         heading: "Plain reporting",
         body: [
-          "Investors get regular updates on each company: revenue, costs, usage and what isn't working.",
-          "If a company isn't working, we say so and explain what we're doing about it.",
+          "Investors get regular updates on every company and every investment: revenue, costs, usage and what isn't working.",
+          "If something isn't working, we say so and explain what we're doing about it.",
         ],
       },
       {
         heading: "Long holding periods",
         body: [
-          "We don't plan quick exits. The companies are built to be run for years, and investors should expect the same horizon.",
+          "We don't plan quick exits. We run our own companies for years and stay in our investments for the long run. Investors should expect the same horizon.",
         ],
       },
       {
         heading: "Getting in touch",
         body: [
-          "If you're interested in investing in the group, email us with a short introduction. We reply to every investor inquiry.",
-          "We don't accept startup pitches or funding requests.",
+          "If you're interested in investing with us, email us with a short introduction. We reply to every inquiry.",
         ],
       },
     ],
@@ -236,29 +235,29 @@ export const en = {
   investors: {
     kicker: "Investors",
     title: "We work with a small number of investors.",
-    body: "Artes de Ilusión takes capital from a limited group of investors and puts it into the companies we own and operate. Investors deal directly with the people running those companies.",
+    body: "Artes de Ilusión takes capital from a limited group of investors and puts it into the companies we build and the startups we invest in. Investors deal directly with the people making those decisions.",
     note: "Figures show focus only. Not audited financials.",
     stats: [
-      { value: "Own", label: "Operated companies" },
-      { value: "AI", label: "Main focus" },
+      { value: "Build", label: "Our own companies" },
+      { value: "Back", label: "Startup investments" },
       { value: "7", label: "Cities" },
       { value: "Closed", label: "Investor group" },
     ],
     deskKicker: "For investors",
     deskTitle: "What investors get",
     points: [
-      "Direct contact with the people running the companies.",
-      "Regular reports on each company, including the parts that aren't working.",
-      "Exposure to the whole group, not a single startup.",
+      "Direct contact with the people making the decisions.",
+      "Regular reports on every company and investment, including the parts that aren't working.",
+      "Exposure to the whole group: our own companies and the startups we back.",
     ],
     requestKicker: "Contact",
     ctaTitle: "Interested in investing?",
-    ctaBody: "Email us with a short introduction. We don't take startup pitches.",
+    ctaBody: "Email us with a short introduction.",
   },
   cta: {
     kicker: "Investors",
     title: "Interested in investing?",
-    body: "We take capital from a small number of investors. Email us with a short introduction. We don't accept startup pitches.",
+    body: "We take capital from a small number of investors. Email us with a short introduction.",
   },
   footer: {
     rights: "© 2026 Artes de Ilusion. All rights reserved.",
