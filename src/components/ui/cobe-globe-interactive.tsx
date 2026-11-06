@@ -138,13 +138,7 @@ export function GlobeInteractive({
           size: 0.032,
           id: m.id,
         })),
-        arcs: markers.slice(1).map((m, i) => ({
-          from: markers[i]!.location,
-          to: m.location,
-        })),
-        arcColor: [0.89, 0.094, 0.216],
-        arcWidth: 0.45,
-        arcHeight: 0.22,
+        arcs: [],
         opacity: 0.9,
       });
 

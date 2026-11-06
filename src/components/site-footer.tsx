@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LanguageSwitcher } from "@/components/language-switcher";
 import { localePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionary";
 import { NAV_HREFS, SITE } from "@/lib/site";
@@ -23,6 +24,7 @@ export function SiteFooter({
               {dict.nav[item.key]}
             </Link>
           ))}
+          <LanguageSwitcher locale={locale} />
         </div>
       </div>
       <div className={styles.footerBottom}>

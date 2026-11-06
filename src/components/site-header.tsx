@@ -6,7 +6,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { BrandWordmark } from "@/components/brand-logo";
-import { LanguageSwitcher } from "@/components/language-switcher";
 import { LocaleHtml } from "@/components/locale-html";
 import { localePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionary";
@@ -127,10 +126,6 @@ export function SiteHeader({
           </ul>
         </nav>
 
-        <div className={styles.mobileLang}>
-          <LanguageSwitcher locale={locale} />
-        </div>
-
         <a className={styles.mobileMail} href={`mailto:${SITE.email}`}>
           {SITE.email}
         </a>
@@ -173,23 +168,20 @@ export function SiteHeader({
           </ul>
         </nav>
 
-        <div className={styles.navAside}>
-          <LanguageSwitcher locale={locale} />
-          <button
-            type="button"
-            className={styles.navToggle}
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-            aria-label={open ? dict.nav.closeMenu : dict.nav.openMenu}
-            onClick={() => setOpen((value) => !value)}
-          >
-            {open ? (
-              <X size={22} aria-hidden />
-            ) : (
-              <Menu size={22} aria-hidden />
-            )}
-          </button>
-        </div>
+        <button
+          type="button"
+          className={styles.navToggle}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          aria-label={open ? dict.nav.closeMenu : dict.nav.openMenu}
+          onClick={() => setOpen((value) => !value)}
+        >
+          {open ? (
+            <X size={22} aria-hidden />
+          ) : (
+            <Menu size={22} aria-hidden />
+          )}
+        </button>
       </header>
       {menu}
     </>

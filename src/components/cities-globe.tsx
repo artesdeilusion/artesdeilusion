@@ -97,7 +97,6 @@ export function CitiesGlobe({ dict }: { dict: Dictionary }) {
         </div>
 
         <div className={styles.globeStage}>
-          <div className={styles.globeRing} aria-hidden="true" />
           <div className={styles.globeHost}>
             <GlobeInteractive
               markers={markers}
