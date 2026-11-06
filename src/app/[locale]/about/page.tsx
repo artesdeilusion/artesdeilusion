@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import {
+  Anchor,
   Bot,
   Building2,
   Cpu,
+  HandCoins,
   Layers3,
   Quote,
   Rocket,
@@ -25,11 +27,11 @@ const SECTOR_ICONS: LucideIcon[] = [
   Layers3,
   Workflow,
   Rocket,
-  Target,
+  Anchor,
 ];
 
 const PILLAR_ICONS: LucideIcon[] = [Building2, Rocket, Layers3];
-const PRACTICE_ICONS: LucideIcon[] = [Bot, Cpu, Building2, Workflow, Rocket];
+const PRACTICE_ICONS: LucideIcon[] = [Bot, Cpu, HandCoins, Workflow, Rocket];
 
 export async function generateMetadata({
   params,

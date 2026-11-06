@@ -1,9 +1,9 @@
 export const en = {
   meta: {
-    title: "Artes de Ilusión — AI and software companies",
+    title: "Artes de Ilusión — Technology and service companies",
     titleTemplate: "%s · Artes de Ilusión",
     description:
-      "Artes de Ilusión builds its own AI and software companies and invests in startups, with capital from a small group of investors.",
+      "Artes de Ilusión builds its own AI and software companies and invests in startups and service businesses, with capital from a small group of investors.",
   },
   nav: {
     about: "About",
@@ -16,7 +16,7 @@ export const en = {
   hero: {
     tagline: "We build companies and invest in them.",
     subtitle:
-      "Artes de Ilusión starts and runs its own AI and software companies, and invests in startups outside the group. Capital for both comes from a small group of investors.",
+      "Artes de Ilusión starts and runs its own AI and software companies, and invests in startups and service businesses outside the group. Capital for both comes from a small group of investors.",
     ctaPrimary: "Contact",
     ctaSecondary: "Investments",
   },
@@ -31,7 +31,7 @@ export const en = {
     aria: "Group snapshot",
     items: [
       { value: "Build", label: "Companies we start and run" },
-      { value: "Back", label: "Startups we invest in" },
+      { value: "Back", label: "Startups and service businesses we invest in" },
       { value: "7", label: "Cities" },
       { value: "AI", label: "Main focus" },
     ],
@@ -39,7 +39,7 @@ export const en = {
   compare: {
     kicker: "Two ways we invest",
     built: "Companies we build",
-    backed: "Startups we back",
+    backed: "Businesses we back",
     rows: [
       {
         label: "Where they come from",
@@ -72,40 +72,40 @@ export const en = {
     aboutKicker: "About",
     aboutTitle: "Operators who also invest.",
     aboutBody:
-      "We start companies, staff them and run them ourselves. We also invest in startups outside the group, in areas where our own operating experience is useful to the founders.",
+      "We start companies, staff them and run them ourselves. We also invest in startups and service businesses outside the group, where our operating experience is useful to the founders.",
     aboutLink: "About the group",
     quote: "We invest in the kind of work we do ourselves.",
     approachKicker: "Allocation",
     approachTitle: "Where the capital goes.",
     approachBody:
-      "Investor capital is split between the companies we build and the startups we back. Most of it goes to AI and software.",
+      "Investor capital is split between the companies we build and the businesses we back: AI, software and services.",
     allocLabel: "Approximate share of capital and time",
     investmentsKicker: "Investments",
     investmentsTitle: "How investor capital is used.",
     investmentsBody:
-      "We raise from a limited number of investors and put that capital into our own companies and into startups we invest in.",
+      "We raise from a limited number of investors and put that capital into our own companies and into the businesses we invest in.",
     investmentsLink: "Read the details",
     copy: "Copy",
     copied: "Copied",
     investorsKicker: "Investors",
     investorsTitle: "We work with a small number of investors.",
     investorsBody:
-      "If you want exposure to the companies we build and the startups we back, write to us.",
+      "If you want exposure to the companies we build and the businesses we back, write to us.",
     investorsLink: "Write to us",
   },
   allocation: {
     ai: "Artificial Intelligence",
     software: "Software & SaaS",
-    consumer: "Consumer Digital",
+    services: "Services",
     venture: "New companies",
   },
   about: {
     kicker: "About",
     title: "Operators who also invest.",
-    body: "Artes de Ilusión is a technology group working in AI, software and digital products. We start and run our own companies, and we invest in startups outside the group. Both are funded by a small group of investors.",
+    body: "Artes de Ilusión starts and runs its own AI and software companies, and invests in startups and service businesses outside the group. Both are funded by a small group of investors.",
     whatWeDoTitle: "What we do",
     whatWeDo:
-      "In our own companies, we decide what to build, hire the team and run the business once it's live. In the startups we back, we put in capital and help founders with product, hiring and operations when they ask.",
+      "In our own companies, we decide what to build, hire the team and run the business once it's live. In the businesses we back, we put in capital and help founders with product, hiring and operations when they ask.",
     whyAiTitle: "Why AI",
     whyAi:
       "Most of our new products are built on AI. We focus on software people use every week for real work, not on demos.",
@@ -127,7 +127,7 @@ export const en = {
     focusKicker: "Focus",
     sectorsTitle: "Sectors",
     sectorsIntro:
-      "Most of the group sits in AI and software. The rest is digital products and the infrastructure that supports them.",
+      "Most of the group sits in AI and software. We also invest in service businesses with real customers and steady demand.",
     sectors: [
       {
         title: "Artificial Intelligence",
@@ -150,8 +150,8 @@ export const en = {
         body: "Companies started inside the group and run by our own teams.",
       },
       {
-        title: "Brand & Design",
-        body: "Identity, product design and interfaces for every company in the group.",
+        title: "Services",
+        body: "Service businesses with real customers and repeat demand, such as marina and boat care.",
       },
     ],
     practiceKicker: "Group",
@@ -167,7 +167,7 @@ export const en = {
       },
       {
         title: "Startup investments",
-        body: "Stakes in AI and software startups outside the group, run by their founders.",
+        body: "Stakes in startups and service businesses outside the group, run by their founders.",
       },
       {
         title: "Shared technology",
@@ -189,7 +189,7 @@ export const en = {
       {
         heading: "Two ways in",
         body: [
-          "Some companies we build ourselves, with our own team running product, engineering and operations. Others are startups founded by other people, where we invest and stay involved.",
+          "Some companies we build ourselves, with our own team running product, engineering and operations. Others are startups and service businesses founded by other people, where we invest and stay involved.",
           "Both sides draw on the same people and the same operating experience.",
         ],
       },
@@ -197,14 +197,14 @@ export const en = {
         heading: "A small group of investors",
         body: [
           "Capital comes from a limited number of investors. We don't run open rounds, and we don't take money from people we haven't met.",
-          "Investors get exposure to the whole group: the companies we build and the startups we back.",
+          "Investors get exposure to the whole group: the companies we build and the businesses we back.",
         ],
       },
       {
         heading: "Where we invest",
         body: [
-          "We invest in AI, software and digital product startups, usually early, while product and operations still decide the outcome.",
-          "We back fewer companies than most investors, so we can stay useful to each one.",
+          "We invest in AI and software startups, and in service businesses with steady demand, such as marina and boat care.",
+          "What they have in common is that operations decide the outcome. That is where we can help. We back fewer companies than most investors, so we can stay useful to each one.",
         ],
       },
       {
@@ -235,11 +235,11 @@ export const en = {
   investors: {
     kicker: "Investors",
     title: "We work with a small number of investors.",
-    body: "Artes de Ilusión takes capital from a limited group of investors and puts it into the companies we build and the startups we invest in. Investors deal directly with the people making those decisions.",
+    body: "Artes de Ilusión takes capital from a limited group of investors and puts it into the companies we build and the businesses we invest in. Investors deal directly with the people making those decisions.",
     note: "Figures show focus only. Not audited financials.",
     stats: [
       { value: "Build", label: "Our own companies" },
-      { value: "Back", label: "Startup investments" },
+      { value: "Back", label: "Startups and services" },
       { value: "7", label: "Cities" },
       { value: "Closed", label: "Investor group" },
     ],
@@ -248,7 +248,7 @@ export const en = {
     points: [
       "Direct contact with the people making the decisions.",
       "Regular reports on every company and investment, including the parts that aren't working.",
-      "Exposure to the whole group: our own companies and the startups we back.",
+      "Exposure to the whole group: our own companies and the businesses we back.",
     ],
     requestKicker: "Contact",
     ctaTitle: "Interested in investing?",

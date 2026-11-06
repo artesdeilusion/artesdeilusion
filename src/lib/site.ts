@@ -24,6 +24,6 @@ export const CITY_MARKERS = [
 export const ALLOCATION_WEIGHTS = [
   { key: "ai", weight: 42 },
   { key: "software", weight: 28 },
-  { key: "consumer", weight: 18 },
+  { key: "services", weight: 18 },
   { key: "venture", weight: 12 },
 ] as const;
