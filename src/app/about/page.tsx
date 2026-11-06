@@ -10,7 +10,7 @@ import {
   Workflow,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { CitiesMarquee } from "@/components/cities-marquee";
+import { CitiesStrip } from "@/components/cities-strip";
 import { CtaBand } from "@/components/cta-band";
 import { PageHero } from "@/components/page-hero";
 import { ABOUT, RUN_BUILD, SECTORS } from "@/lib/site";
@@ -44,7 +44,7 @@ export default function AboutPage() {
   return (
     <main>
       <PageHero kicker={ABOUT.kicker} title={ABOUT.title} body={ABOUT.body} />
-      <CitiesMarquee />
+      <CitiesStrip />
 
       <section className={styles.section}>
         <div className={styles.splitHead}>

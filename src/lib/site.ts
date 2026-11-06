@@ -29,6 +29,17 @@ export const CITIES = [
   "AMSTERDAM",
 ] as const;
 
+export const CITY_PHOTOS = [
+  { name: "New York", slug: "new-york", src: "/cities/new-york.jpg" },
+  { name: "Dubai", slug: "dubai", src: "/cities/dubai.jpg" },
+  { name: "London", slug: "london", src: "/cities/london.jpg" },
+  { name: "Istanbul", slug: "istanbul", src: "/cities/istanbul.jpg" },
+  { name: "Berlin", slug: "berlin", src: "/cities/berlin.jpg" },
+  { name: "Amsterdam", slug: "amsterdam", src: "/cities/amsterdam.jpg" },
+  { name: "Madrid", slug: "madrid", src: "/cities/madrid.jpg" },
+  { name: "Riyadh", slug: "riyadh", src: "/cities/riyadh.jpg" },
+] as const;
+
 export const ABOUT = {
   kicker: "About us",
   title: "Operators at the head of many companies.",

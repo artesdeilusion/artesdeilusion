@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -9,7 +10,7 @@ import {
   Workflow,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { CitiesMarquee } from "@/components/cities-marquee";
+import { CitiesStrip } from "@/components/cities-strip";
 import { CtaBand } from "@/components/cta-band";
 import { ALLOCATION, APPROACH, SITE, SNAPSHOT } from "@/lib/site";
 import styles from "@/styles/site.module.css";
@@ -28,55 +29,36 @@ export default function HomePage() {
     <main id="top">
       <section className={styles.hero} aria-labelledby="brand">
         <div className={styles.heroStage} aria-hidden="true">
-          <span className={styles.heroGrid} />
-          <span className={styles.heroGlow} />
-          <span className={styles.cornerTL} />
-          <span className={styles.cornerBR} />
+          <Image
+            src="/cities/hero.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className={styles.heroPhoto}
+          />
+          <span className={styles.heroShade} />
         </div>
         <div className={styles.heroInner}>
-          <div className={styles.heroMeta}>
-            <span>Investment group</span>
-            <Square
-              size={6}
-              fill="currentColor"
-              strokeWidth={0}
-              className={styles.metaDot}
-              aria-hidden
-            />
-            <span>AI & software</span>
-            <Square
-              size={6}
-              fill="currentColor"
-              strokeWidth={0}
-              className={styles.metaDot}
-              aria-hidden
-            />
-            <span>Operator-led</span>
-          </div>
           <p className={styles.heroEyebrow}>{SITE.name}</p>
           <h1 id="brand" className={styles.brand}>
             {SITE.tagline}
           </h1>
           <p className={styles.lede}>{SITE.subtitle}</p>
-            <div className={styles.ctaRow}>
-              <Link className={styles.ctaPrimary} href="/contact">
-                Get in touch
-                <ArrowRight size={15} aria-hidden />
-              </Link>
-              <Link className={styles.ctaGhost} href="/investments">
-                View investments
-                <ArrowRight size={15} aria-hidden />
-              </Link>
-            </div>
-        </div>
-        <div className={styles.heroRail} aria-hidden="true">
-          <span>ADI</span>
-          <span>HOLDINGS</span>
-          <span>LONG-TERM</span>
+          <div className={styles.ctaRow}>
+            <Link className={styles.ctaPrimary} href="/contact">
+              Get in touch
+              <ArrowRight size={15} aria-hidden />
+            </Link>
+            <Link className={styles.ctaGhost} href="/investments">
+              View investments
+              <ArrowRight size={15} aria-hidden />
+            </Link>
+          </div>
         </div>
       </section>
 
-      <CitiesMarquee />
+      <CitiesStrip />
 
       <section className={styles.snapshot} aria-label="Group snapshot">
         <ul className={styles.snapshotList}>
@@ -108,7 +90,7 @@ export default function HomePage() {
               <ArrowRight size={15} aria-hidden />
             </Link>
           </div>
-            <blockquote className={styles.pullquote}>
+          <blockquote className={styles.pullquote}>
             <p>
               We put capital in, then stay in the room for product and
               operations.
@@ -119,7 +101,7 @@ export default function HomePage() {
 
       <section className={styles.thesis} aria-labelledby="thesis-title">
         <div className={styles.thesisInner}>
-            <p className={styles.kickerLight}>Approach</p>
+          <p className={styles.kickerLight}>Approach</p>
           <h2 id="thesis-title" className={styles.thesisTitle}>
             We invest where we can help run the work.
           </h2>
