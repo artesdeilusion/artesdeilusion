@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { LanguageSwitcher } from "@/components/language-switcher";
 import { localePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionary";
 import { SITE } from "@/lib/site";
@@ -20,7 +19,6 @@ export function SiteFooter({
         </Link>
         <div className={styles.footerLinks}>
           <a href="https://finance.artesdeilusion.com">Finance</a>
-          <LanguageSwitcher locale={locale} />
         </div>
       </div>
       <div className={styles.footerBottom}>

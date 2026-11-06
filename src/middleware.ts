@@ -1,20 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { defaultLocale, isLocale } from "@/i18n/config";
 
-function pickLocale(request: NextRequest) {
-  const header = request.headers.get("accept-language") ?? "";
-  const preferred = header
-    .split(",")
-    .map((part) => part.trim().split(";")[0]?.toLowerCase())
-    .find(Boolean);
-
-  if (preferred?.startsWith("tr")) {
-    return "tr";
-  }
-
-  return defaultLocale;
-}
-
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
@@ -26,16 +12,16 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const segment = pathname.split("/")[1] ?? "";
+  const segments = pathname.split("/");
+  const segment = segments[1] ?? "";
   if (isLocale(segment)) {
     return NextResponse.next();
   }
 
-  const locale = pickLocale(request);
+  const rest = segment === "tr" ? segments.slice(2).join("/") : segments.slice(1).join("/");
   const url = request.nextUrl.clone();
-  url.pathname =
-    pathname === "/" ? `/${locale}` : `/${locale}${pathname}`;
-  return NextResponse.redirect(url);
+  url.pathname = rest ? `/${defaultLocale}/${rest}` : `/${defaultLocale}`;
+  return NextResponse.redirect(url, segment === "tr" ? 308 : 307);
 }
 
 export const config = {

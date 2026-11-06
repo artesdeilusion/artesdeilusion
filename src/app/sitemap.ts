@@ -20,11 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
             : route === "/investments" || route === "/about"
               ? 0.9
               : 0.7,
-        alternates: {
-          languages: Object.fromEntries(
-            locales.map((code) => [code, `${SITE.url}/${code}${route}`]),
-          ),
-        },
       });
     }
   }

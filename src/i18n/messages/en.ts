@@ -13,11 +13,6 @@ export const en = {
     openMenu: "Open menu",
     closeMenu: "Close menu",
   },
-  lang: {
-    en: "EN",
-    tr: "TR",
-    switchTo: "Language",
-  },
   hero: {
     tagline: "We build and run our own companies.",
     subtitle:

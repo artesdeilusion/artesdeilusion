@@ -14,10 +14,6 @@ export default function NotFound() {
           <Link className={styles.notFoundHome} href="/en">
             Back home
           </Link>
-          <span className={styles.notFoundLangGap}>·</span>
-          <Link className={styles.notFoundHome} href="/tr">
-            Ana sayfa
-          </Link>
         </div>
       </section>
     </main>

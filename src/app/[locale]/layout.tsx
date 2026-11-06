@@ -37,17 +37,10 @@ export async function generateMetadata({
       "artesdeilusion.com",
       "AI companies",
       "software companies",
-      "yapay zeka",
-      "yazılım",
       "Istanbul",
     ],
     alternates: {
       canonical: `/${locale}`,
-      languages: {
-        en: "/en",
-        tr: "/tr",
-        "x-default": "/en",
-      },
     },
     robots: {
       index: true,
@@ -66,8 +59,7 @@ export async function generateMetadata({
       url: `${SITE.url}/${locale}`,
       siteName: SITE.name,
       type: "website",
-      locale: locale === "tr" ? "tr_TR" : "en_US",
-      alternateLocale: locale === "tr" ? ["en_US"] : ["tr_TR"],
+      locale: "en_US",
     },
     twitter: {
       card: "summary_large_image",

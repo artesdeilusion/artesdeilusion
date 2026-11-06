@@ -44,10 +44,6 @@ export async function generateMetadata({
     description: dict.about.body,
     alternates: {
       canonical: localePath(locale, "/about"),
-      languages: {
-        en: "/en/about",
-        tr: "/tr/about",
-      },
     },
     openGraph: {
       title: `${dict.nav.about} · ${SITE.name}`,

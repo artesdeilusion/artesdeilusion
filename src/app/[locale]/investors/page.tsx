@@ -20,10 +20,6 @@ export async function generateMetadata({
     description: dict.investors.body,
     alternates: {
       canonical: localePath(locale, "/investors"),
-      languages: {
-        en: "/en/investors",
-        tr: "/tr/investors",
-      },
     },
     openGraph: {
       title: `${dict.nav.investors} · ${SITE.name}`,
