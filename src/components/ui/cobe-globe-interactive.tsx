@@ -21,6 +21,9 @@ export interface GlobeInteractiveProps {
   markers?: InteractiveMarker[];
   className?: string;
   speed?: number;
+  focusLocation?: [number, number] | null;
+  activeId?: string | null;
+  onSelectMarker?: (id: string) => void;
 }
 
 const defaultMarkers: InteractiveMarker[] = [
@@ -32,10 +35,20 @@ const defaultMarkers: InteractiveMarker[] = [
   { id: "oceania", location: [-33.87, 151.21], name: "APAC", users: 445 },
 ];
 
+function locationToAngles(lat: number, lng: number): [number, number] {
+  return [
+    Math.PI - ((lng * Math.PI) / 180 - Math.PI / 2),
+    (lat * Math.PI) / 180,
+  ];
+}
+
 export function GlobeInteractive({
   markers = defaultMarkers,
   className = "",
   speed = 0.003,
+  focusLocation = null,
+  activeId = null,
+  onSelectMarker,
 }: GlobeInteractiveProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerInteracting = useRef<{ x: number; y: number } | null>(null);
@@ -43,7 +56,19 @@ export function GlobeInteractive({
   const phiOffsetRef = useRef(0);
   const thetaOffsetRef = useRef(0);
   const isPausedRef = useRef(false);
+  const targetAnglesRef = useRef<[number, number] | null>(null);
   const [expanded, setExpanded] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (focusLocation) {
+      targetAnglesRef.current = locationToAngles(
+        focusLocation[0],
+        focusLocation[1],
+      );
+    } else {
+      targetAnglesRef.current = null;
+    }
+  }, [focusLocation]);
 
   const handlePointerDown = useCallback((e: ReactPointerEvent) => {
     pointerInteracting.current = { x: e.clientX, y: e.clientY };
@@ -84,8 +109,10 @@ export function GlobeInteractive({
     const canvas = canvasRef.current;
     let globe: ReturnType<typeof createGlobe> | null = null;
     let animationId = 0;
-    let phi = 0;
+    let currentPhi = 0;
+    let currentTheta = 0.2;
     let resizeObserver: ResizeObserver | null = null;
+    const doublePi = Math.PI * 2;
 
     function init() {
       const width = canvas.offsetWidth;
@@ -99,30 +126,47 @@ export function GlobeInteractive({
         phi: 0,
         theta: 0.2,
         dark: 1,
-        diffuse: 1.2,
-        mapSamples: 16000,
-        mapBrightness: 4.5,
-        baseColor: [0.12, 0.12, 0.12],
+        diffuse: 1.35,
+        mapSamples: 18000,
+        mapBrightness: 5.5,
+        baseColor: [0.14, 0.14, 0.14],
         markerColor: [0.89, 0.094, 0.216],
-        glowColor: [0.12, 0.05, 0.06],
+        glowColor: [0.16, 0.04, 0.06],
         markerElevation: 0,
         markers: markers.map((m) => ({
           location: m.location,
-          size: 0.028,
+          size: 0.032,
           id: m.id,
         })),
-        arcs: [],
+        arcs: markers.slice(1).map((m, i) => ({
+          from: markers[i]!.location,
+          to: m.location,
+        })),
         arcColor: [0.89, 0.094, 0.216],
-        arcWidth: 0.5,
-        arcHeight: 0.25,
-        opacity: 0.85,
+        arcWidth: 0.45,
+        arcHeight: 0.22,
+        opacity: 0.9,
       });
 
       function animate() {
-        if (!isPausedRef.current) phi += speed;
+        const target = targetAnglesRef.current;
+        if (target && !isPausedRef.current) {
+          const [focusPhi, focusTheta] = target;
+          const distPositive = (focusPhi - currentPhi + doublePi) % doublePi;
+          const distNegative = (currentPhi - focusPhi + doublePi) % doublePi;
+          if (distPositive < distNegative) {
+            currentPhi += distPositive * 0.08;
+          } else {
+            currentPhi -= distNegative * 0.08;
+          }
+          currentTheta = currentTheta * 0.92 + focusTheta * 0.08;
+        } else if (!isPausedRef.current) {
+          currentPhi += speed;
+        }
+
         globe!.update({
-          phi: phi + phiOffsetRef.current + dragOffset.current.phi,
-          theta: 0.2 + thetaOffsetRef.current + dragOffset.current.theta,
+          phi: currentPhi + phiOffsetRef.current + dragOffset.current.phi,
+          theta: currentTheta + thetaOffsetRef.current + dragOffset.current.theta,
         });
         animationId = requestAnimationFrame(animate);
       }
@@ -150,6 +194,8 @@ export function GlobeInteractive({
       if (globe) globe.destroy();
     };
   }, [markers, speed]);
+
+  const highlightedId = activeId ?? expanded;
 
   return (
     <div
@@ -180,79 +226,90 @@ export function GlobeInteractive({
           touchAction: "none",
         }}
       />
-      {markers.map((m) => (
-        <div
-          key={m.id}
-          onClick={() => setExpanded(expanded === m.id ? null : m.id)}
-          style={
-            {
-              position: "absolute",
-              positionAnchor: `--cobe-${m.id}`,
-              bottom: "anchor(top)",
-              left: "anchor(center)",
-              translate: "-50% 0",
-              marginBottom: 6,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: expanded === m.id ? "0.25rem" : 0,
-              padding: expanded === m.id ? "0.45rem 0.65rem" : "0.3rem 0.5rem",
-              background: "rgba(10, 10, 10, 0.94)",
-              color: "#fff",
-              border: "1px solid rgba(227, 24, 55, 0.45)",
-              borderRadius: 2,
-              cursor: "pointer",
-              boxShadow: "0 2px 12px rgba(0,0,0,0.35)",
-              opacity: `var(--cobe-visible-${m.id}, 0)`,
-              filter: `blur(calc((1 - var(--cobe-visible-${m.id}, 0)) * 8px))`,
-              transition:
-                "opacity 0.4s, filter 0.4s, transform 0.2s, padding 0.2s",
-              zoom: expanded === m.id ? 1.05 : 1,
-            } as CSSProperties
-          }
-        >
-          <span
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.35rem",
-              fontFamily: "var(--font-body), system-ui, sans-serif",
-              fontSize: "0.65rem",
-              fontWeight: 700,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
+      {markers.map((m) => {
+        const isHot = highlightedId === m.id;
+        return (
+          <div
+            key={m.id}
+            onClick={() => {
+              setExpanded(expanded === m.id ? null : m.id);
+              onSelectMarker?.(m.id);
             }}
+            style={
+              {
+                position: "absolute",
+                positionAnchor: `--cobe-${m.id}`,
+                bottom: "anchor(top)",
+                left: "anchor(center)",
+                translate: "-50% 0",
+                marginBottom: 6,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: isHot ? "0.25rem" : 0,
+                padding: isHot ? "0.45rem 0.7rem" : "0.28rem 0.48rem",
+                background: isHot ? "#e31837" : "rgba(10, 10, 10, 0.92)",
+                color: "#fff",
+                border: isHot
+                  ? "1px solid #ff6b7f"
+                  : "1px solid rgba(255, 255, 255, 0.16)",
+                borderRadius: 2,
+                cursor: "pointer",
+                boxShadow: isHot
+                  ? "0 8px 24px rgba(227, 24, 55, 0.45)"
+                  : "0 2px 10px rgba(0,0,0,0.35)",
+                opacity: `var(--cobe-visible-${m.id}, 0)`,
+                filter: `blur(calc((1 - var(--cobe-visible-${m.id}, 0)) * 8px))`,
+                transition:
+                  "opacity 0.4s, filter 0.4s, transform 0.2s, background 0.2s, padding 0.2s",
+                zoom: isHot ? 1.08 : 1,
+                zIndex: isHot ? 4 : 2,
+              } as CSSProperties
+            }
           >
-            <svg
-              width="12"
-              height="12"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#e31837"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
-            {m.name}
-          </span>
-          {expanded === m.id && m.users != null && (
             <span
               style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.35rem",
                 fontFamily: "var(--font-body), system-ui, sans-serif",
-                fontSize: "0.55rem",
-                opacity: 0.8,
-                animation: "fade-slide-in 0.2s ease-out",
+                fontSize: "0.65rem",
+                fontWeight: 700,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
               }}
             >
-              {m.users.toLocaleString()} users
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke={isHot ? "#fff" : "#e31837"}
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              {m.name}
             </span>
-          )}
-        </div>
-      ))}
+            {expanded === m.id && m.users != null && (
+              <span
+                style={{
+                  fontFamily: "var(--font-body), system-ui, sans-serif",
+                  fontSize: "0.55rem",
+                  opacity: 0.85,
+                  animation: "fade-slide-in 0.2s ease-out",
+                }}
+              >
+                {m.users.toLocaleString()} users
+              </span>
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 }
