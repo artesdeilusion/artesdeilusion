@@ -16,7 +16,7 @@ import { CtaBand } from "@/components/cta-band";
 import { Reveal } from "@/components/reveal";
 import { isLocale, localePath } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionary";
-import { ALLOCATION_WEIGHTS, SITE } from "@/lib/site";
+import { ALLOCATION_WEIGHTS } from "@/lib/site";
 import styles from "@/styles/site.module.css";
 
 const SNAPSHOT_ICONS: Record<string, LucideIcon> = {
@@ -56,24 +56,10 @@ export default async function HomePage({
         <div className={styles.heroInner}>
           <div className={styles.heroSplit}>
             <div>
-              <p className={styles.heroEyebrow}>{SITE.name}</p>
               <h1 id="brand" className={styles.brand}>
                 {dict.hero.tagline}
               </h1>
               <p className={styles.lede}>{dict.hero.subtitle}</p>
-              <div className={styles.ctaRow}>
-                <a className={styles.ctaPrimary} href={`mailto:${SITE.email}`}>
-                  {dict.hero.ctaPrimary}
-                  <ArrowRight size={15} aria-hidden />
-                </a>
-                <Link
-                  className={styles.ctaGhost}
-                  href={localePath(locale, "#investments")}
-                >
-                  {dict.hero.ctaSecondary}
-                  <ArrowRight size={15} aria-hidden />
-                </Link>
-              </div>
             </div>
 
             <aside className={styles.heroDeck} aria-hidden="true">

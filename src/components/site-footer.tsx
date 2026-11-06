@@ -19,7 +19,7 @@ export function SiteFooter({
           ARTES
         </Link>
         <div className={styles.footerLinks}>
-          <Link href={localePath(locale, "/investors")}>Finance</Link>
+          <a href="https://finance.artesdeilusion.com">Finance</a>
           <LanguageSwitcher locale={locale} />
         </div>
       </div>
