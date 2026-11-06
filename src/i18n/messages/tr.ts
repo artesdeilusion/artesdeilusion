@@ -30,6 +30,7 @@ export const tr = {
     title: "Çalıştığımız yerler.",
     body: "Ekiplerimiz ve şirketlerimiz yedi şehirde çalışıyor.",
     aria: "Çalıştığımız şehirler",
+    localTime: "Yerel saat",
   },
   snapshot: {
     aria: "Grup özeti",

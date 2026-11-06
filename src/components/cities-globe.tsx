@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { MapPin } from "lucide-react";
 import {
   GlobeInteractive,
   type InteractiveMarker,
@@ -10,39 +9,66 @@ import type { Dictionary } from "@/i18n/dictionary";
 import { CITY_MARKERS } from "@/lib/site";
 import styles from "@/styles/site.module.css";
 
-const markers: InteractiveMarker[] = CITY_MARKERS.map((city) => ({
+const STEP_MS = 3200;
+
+const cities = CITY_MARKERS.map((city) => ({
   id: city.name.toLowerCase().replace(/\s+/g, "-"),
-  location: [city.lat, city.lng],
+  location: [city.lat, city.lng] as [number, number],
   name: city.name,
+  tz: city.tz,
 }));
+
+const markers: InteractiveMarker[] = cities.map(({ id, location, name }) => ({
+  id,
+  location,
+  name,
+}));
+
+const count = cities.length;
+const reel = [...cities, ...cities, ...cities];
 
 function formatCoord(lat: number, lng: number) {
   const ns = lat >= 0 ? "N" : "S";
   const ew = lng >= 0 ? "E" : "W";
-  return `${Math.abs(lat).toFixed(2)}° ${ns} · ${Math.abs(lng).toFixed(2)}° ${ew}`;
+  return `${Math.abs(lat).toFixed(2)}° ${ns}  ${Math.abs(lng).toFixed(2)}° ${ew}`;
+}
+
+function formatTime(date: Date, timeZone: string) {
+  return new Intl.DateTimeFormat("en-GB", {
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone,
+  }).format(date);
 }
 
 export function CitiesGlobe({ dict }: { dict: Dictionary }) {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [pos, setPos] = useState(count);
+  const [snap, setSnap] = useState(false);
+  const [now, setNow] = useState(() => new Date());
+
+  const activeIndex = pos % count;
+  const current = cities[activeIndex]!;
 
   useEffect(() => {
-    if (paused) return;
-    const timer = window.setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % markers.length);
-    }, 2800);
-    return () => window.clearInterval(timer);
-  }, [paused]);
+    const timer = window.setTimeout(() => {
+      setSnap(false);
+      setPos((p) => p + 1);
+    }, STEP_MS);
+    return () => window.clearTimeout(timer);
+  }, [pos]);
 
-  const current = markers[activeIndex] ?? markers[0]!;
+  useEffect(() => {
+    const timer = window.setInterval(() => setNow(new Date()), 15000);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const jumpTo = (idx: number) => {
+    setSnap(false);
+    setPos(count + idx);
+  };
 
   return (
-    <section
-      className={styles.globeSection}
-      aria-label={dict.globe.aria}
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
+    <section className={styles.globeSection} aria-label={dict.globe.aria}>
       <div className={styles.globeGrid}>
         <div className={styles.globeRail}>
           <div className={styles.globeIntro}>
@@ -51,49 +77,81 @@ export function CitiesGlobe({ dict }: { dict: Dictionary }) {
             <p className={styles.globeBody}>{dict.globe.body}</p>
           </div>
 
-          <div className={styles.citySpotlight} key={current.id}>
-            <div className={styles.citySpotMeta}>
-              <span className={styles.citySpotIndex}>
-                {String(activeIndex + 1).padStart(2, "0")} /{" "}
-                {String(markers.length).padStart(2, "0")}
-              </span>
-              <span className={styles.citySpotCoord}>
-                {formatCoord(current.location[0], current.location[1])}
-              </span>
-            </div>
-            <div className={styles.citySpotTitleRow}>
-              <MapPin size={20} className={styles.citySpotPin} aria-hidden />
-              <strong className={styles.citySpotName}>{current.name}</strong>
-            </div>
-            <span className={styles.citySpotBar} aria-hidden="true" />
+          <div className={styles.cityReel}>
+            <ol
+              className={styles.cityReelTrack}
+              style={{
+                transform: `translateY(calc(var(--row) * ${-(pos - 2)}))`,
+                transition: snap ? "none" : undefined,
+              }}
+              onTransitionEnd={(event) => {
+                if (event.target !== event.currentTarget) return;
+                if (pos >= count * 2) {
+                  setSnap(true);
+                  setPos((p) => p - count);
+                }
+              }}
+            >
+              {reel.map((city, i) => {
+                const distance = Math.abs(i - pos);
+                return (
+                  <li
+                    key={`${city.id}-${i}`}
+                    className={styles.cityReelRow}
+                    data-distance={Math.min(distance, 3)}
+                    aria-hidden={i !== pos}
+                  >
+                    <button
+                      type="button"
+                      tabIndex={i >= count && i < count * 2 ? 0 : -1}
+                      onClick={() => jumpTo(i % count)}
+                    >
+                      {city.name}
+                    </button>
+                  </li>
+                );
+              })}
+            </ol>
           </div>
 
-          <ol className={styles.cityTicker}>
-            {markers.map((marker, idx) => {
-              const active = idx === activeIndex;
-              return (
-                <li key={marker.id}>
-                  <button
-                    type="button"
-                    className={`${styles.cityTickBtn} ${active ? styles.cityTickActive : ""}`}
-                    onMouseEnter={() => setActiveIndex(idx)}
-                    onFocus={() => setActiveIndex(idx)}
-                    onClick={() => setActiveIndex(idx)}
-                  >
-                    <span className={styles.cityTickNum}>
-                      {String(idx + 1).padStart(2, "0")}
-                    </span>
-                    <span className={styles.cityTickLabel}>{marker.name}</span>
-                    <MapPin
-                      size={13}
-                      className={styles.cityTickPin}
-                      aria-hidden
-                    />
-                  </button>
-                </li>
-              );
-            })}
-          </ol>
+          <div className={styles.cityReadout} aria-live="polite">
+            <div>
+              <span className={styles.cityReadoutLabel}>
+                {dict.globe.localTime}
+              </span>
+              <strong className={styles.cityReadoutValue}>
+                {formatTime(now, current.tz)}
+              </strong>
+            </div>
+            <div>
+              <span className={styles.cityReadoutLabel}>
+                {String(activeIndex + 1).padStart(2, "0")} /{" "}
+                {String(count).padStart(2, "0")}
+              </span>
+              <strong className={styles.cityReadoutCoord}>
+                {formatCoord(current.location[0], current.location[1])}
+              </strong>
+            </div>
+          </div>
+
+          <div className={styles.citySegments} aria-hidden="true">
+            {cities.map((city, idx) => (
+              <span
+                key={city.id}
+                className={
+                  idx < activeIndex
+                    ? styles.citySegDone
+                    : idx === activeIndex
+                      ? styles.citySegActive
+                      : undefined
+                }
+              >
+                {idx === activeIndex ? (
+                  <i key={pos} style={{ animationDuration: `${STEP_MS}ms` }} />
+                ) : null}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div className={styles.globeStage}>
@@ -104,8 +162,8 @@ export function CitiesGlobe({ dict }: { dict: Dictionary }) {
               focusLocation={current.location}
               activeId={current.id}
               onSelectMarker={(id) => {
-                const found = markers.findIndex((m) => m.id === id);
-                if (found !== -1) setActiveIndex(found);
+                const found = cities.findIndex((c) => c.id === id);
+                if (found !== -1) jumpTo(found);
               }}
             />
           </div>

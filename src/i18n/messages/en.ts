@@ -30,6 +30,7 @@ export const en = {
     title: "Where we work.",
     body: "Our teams and companies operate from seven cities.",
     aria: "Cities we work in",
+    localTime: "Local time",
   },
   snapshot: {
     aria: "Group snapshot",
