@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CtaBand } from "@/components/cta-band";
+import { InvestorCta } from "@/components/home/investor-cta";
 import { PageHero } from "@/components/page-hero";
 import { isLocale, localePath } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionary";
@@ -90,7 +90,7 @@ export default async function InvestmentsPage({
         </div>
       </section>
 
-      <CtaBand dict={dict} />
+      <InvestorCta dict={dict} />
     </main>
   );
 }

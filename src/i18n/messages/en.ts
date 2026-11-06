@@ -30,10 +30,42 @@ export const en = {
   snapshot: {
     aria: "Group snapshot",
     items: [
-      { value: "Own", label: "Companies", icon: "Companies" },
-      { value: "AI", label: "Main focus", icon: "Main focus" },
-      { value: "7", label: "Cities", icon: "Cities" },
-      { value: "Closed", label: "Investor group", icon: "In operations" },
+      { value: "0", label: "Outside startups funded" },
+      { value: "100%", label: "Of our companies run by our teams" },
+      { value: "7", label: "Cities" },
+      { value: "AI", label: "Main focus" },
+    ],
+  },
+  compare: {
+    kicker: "The difference",
+    fund: "A typical fund",
+    us: "Artes de Ilusión",
+    rows: [
+      {
+        label: "Where companies come from",
+        fund: "Founders pitch them",
+        us: "We start them",
+      },
+      {
+        label: "Who runs them",
+        fund: "The founders",
+        us: "Our own teams",
+      },
+      {
+        label: "What the money buys",
+        fund: "A minority stake",
+        us: "Control of the company",
+      },
+      {
+        label: "How long it's held",
+        fund: "Until an exit",
+        us: "For years",
+      },
+      {
+        label: "What investors own",
+        fund: "A share of a fund",
+        us: "A share of the group",
+      },
     ],
   },
   home: {
@@ -53,6 +85,8 @@ export const en = {
     investmentsBody:
       "We raise from a limited number of investors and spend inside the group: on teams, infrastructure and products we already run.",
     investmentsLink: "Read the details",
+    copy: "Copy",
+    copied: "Copied",
     investorsKicker: "Investors",
     investorsTitle: "We work with a small number of investors.",
     investorsBody:

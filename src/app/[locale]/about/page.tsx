@@ -12,7 +12,7 @@ import {
 import type { LucideIcon } from "lucide-react";
 import { notFound } from "next/navigation";
 import { CitiesStrip } from "@/components/cities-strip";
-import { CtaBand } from "@/components/cta-band";
+import { InvestorCta } from "@/components/home/investor-cta";
 import { PageHero } from "@/components/page-hero";
 import { isLocale, localePath } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionary";
@@ -147,7 +147,7 @@ export default async function AboutPage({
         </ul>
       </section>
 
-      <CtaBand dict={dict} />
+      <InvestorCta dict={dict} />
     </main>
   );
 }
