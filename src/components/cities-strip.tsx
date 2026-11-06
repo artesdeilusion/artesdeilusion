@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import type { Dictionary } from "@/i18n/dictionary";
 import styles from "@/styles/site.module.css";
 
 const CitiesGlobe = dynamic(
@@ -15,6 +16,6 @@ const CitiesGlobe = dynamic(
   },
 );
 
-export function CitiesStrip() {
-  return <CitiesGlobe />;
+export function CitiesStrip({ dict }: { dict: Dictionary }) {
+  return <CitiesGlobe dict={dict} />;
 }

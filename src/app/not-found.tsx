@@ -10,11 +10,13 @@ export default function NotFound() {
           <h1 id="not-found-title" className={styles.notFoundTitle}>
             Page not found.
           </h1>
-          <p className={styles.notFoundBody}>
-            This page does not exist.
-          </p>
-          <Link className={styles.notFoundHome} href="/">
+          <p className={styles.notFoundBody}>This page does not exist.</p>
+          <Link className={styles.notFoundHome} href="/en">
             Back home
+          </Link>
+          <span className={styles.notFoundLangGap}>·</span>
+          <Link className={styles.notFoundHome} href="/tr">
+            Ana sayfa
           </Link>
         </div>
       </section>

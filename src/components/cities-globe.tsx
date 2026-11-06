@@ -2,12 +2,13 @@
 
 import { useEffect, useRef } from "react";
 import Globe from "globe.gl";
+import type { Dictionary } from "@/i18n/dictionary";
 import { CITY_MARKERS } from "@/lib/site";
 import styles from "@/styles/site.module.css";
 
 type CityMarker = (typeof CITY_MARKERS)[number];
 
-export function CitiesGlobe() {
+export function CitiesGlobe({ dict }: { dict: Dictionary }) {
   const hostRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -82,13 +83,11 @@ export function CitiesGlobe() {
   }, []);
 
   return (
-    <section className={styles.globeSection} aria-label="Cities we work across">
+    <section className={styles.globeSection} aria-label={dict.globe.aria}>
       <div className={styles.globeCopy}>
-        <p className={styles.kickerLight}>Footprint</p>
-        <h2 className={styles.globeTitle}>Across the map.</h2>
-        <p className={styles.globeBody}>
-          Hover a city to see where we operate.
-        </p>
+        <p className={styles.kickerLight}>{dict.globe.kicker}</p>
+        <h2 className={styles.globeTitle}>{dict.globe.title}</h2>
+        <p className={styles.globeBody}>{dict.globe.body}</p>
       </div>
       <div ref={hostRef} className={styles.globeHost} />
     </section>

@@ -10,23 +10,14 @@ import {
   Workflow,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { notFound } from "next/navigation";
 import { CitiesStrip } from "@/components/cities-strip";
 import { CtaBand } from "@/components/cta-band";
 import { PageHero } from "@/components/page-hero";
-import { ABOUT, RUN_BUILD, SECTORS } from "@/lib/site";
+import { isLocale, localePath } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionary";
+import { SITE } from "@/lib/site";
 import styles from "@/styles/site.module.css";
-
-export const metadata: Metadata = {
-  title: "About",
-  description: ABOUT.body,
-  alternates: { canonical: "/about" },
-  openGraph: {
-    title: "About · Artes de Ilusión",
-    description: ABOUT.body,
-    url: "https://artesdeilusion.com/about",
-    type: "website",
-  },
-};
 
 const SECTOR_ICONS: LucideIcon[] = [
   Bot,
@@ -40,37 +31,73 @@ const SECTOR_ICONS: LucideIcon[] = [
 const PILLAR_ICONS: LucideIcon[] = [Building2, Rocket, Layers3];
 const PRACTICE_ICONS: LucideIcon[] = [Bot, Cpu, Building2, Workflow, Rocket];
 
-export default function AboutPage() {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale: raw } = await params;
+  const locale = isLocale(raw) ? raw : "en";
+  const dict = getDictionary(locale);
+  return {
+    title: dict.nav.about,
+    description: dict.about.body,
+    alternates: {
+      canonical: localePath(locale, "/about"),
+      languages: {
+        en: "/en/about",
+        tr: "/tr/about",
+      },
+    },
+    openGraph: {
+      title: `${dict.nav.about} · ${SITE.name}`,
+      description: dict.about.body,
+      url: `${SITE.url}${localePath(locale, "/about")}`,
+      type: "website",
+    },
+  };
+}
+
+export default async function AboutPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale: raw } = await params;
+  if (!isLocale(raw)) notFound();
+  const dict = getDictionary(raw);
+
   return (
     <main>
-      <PageHero kicker={ABOUT.kicker} title={ABOUT.title} body={ABOUT.body} />
-      <CitiesStrip />
+      <PageHero
+        kicker={dict.about.kicker}
+        title={dict.about.title}
+        body={dict.about.body}
+      />
+      <CitiesStrip dict={dict} />
 
       <section className={styles.section}>
         <div className={styles.splitHead}>
           <div className={styles.aboutGrid} style={{ marginBottom: 0 }}>
             <article className={styles.panel}>
               <span className={styles.panelIndex}>01</span>
-              <h2 className={styles.subhead}>What we do</h2>
-              <p className={styles.aboutBody}>{ABOUT.whatWeDo}</p>
+              <h2 className={styles.subhead}>{dict.about.whatWeDoTitle}</h2>
+              <p className={styles.aboutBody}>{dict.about.whatWeDo}</p>
             </article>
             <article className={styles.panel}>
               <span className={styles.panelIndex}>02</span>
-              <h2 className={styles.subhead}>Why AI matters to us</h2>
-              <p className={styles.aboutBody}>{ABOUT.whyAi}</p>
+              <h2 className={styles.subhead}>{dict.about.whyAiTitle}</h2>
+              <p className={styles.aboutBody}>{dict.about.whyAi}</p>
             </article>
           </div>
           <blockquote className={styles.pullquote}>
             <Quote className={styles.pullMark} size={18} aria-hidden />
-            <p>
-              We put capital in, then stay in the room for product and
-              operations.
-            </p>
+            <p>{dict.about.quote}</p>
           </blockquote>
         </div>
 
         <ul className={styles.pillarList}>
-          {ABOUT.pillars.map((pillar, index) => {
+          {dict.about.pillars.map((pillar, index) => {
             const Icon = PILLAR_ICONS[index] ?? Building2;
             return (
               <li key={pillar.title}>
@@ -86,12 +113,12 @@ export default function AboutPage() {
       <section className={styles.sectionAlt} aria-labelledby="sectors-title">
         <div className={styles.sectionAltInner}>
           <div className={styles.sectionHead}>
-            <p className={styles.kicker}>Focus</p>
-            <h2 id="sectors-title">{SECTORS.kicker}</h2>
-            <p>{SECTORS.intro}</p>
+            <p className={styles.kicker}>{dict.about.focusKicker}</p>
+            <h2 id="sectors-title">{dict.about.sectorsTitle}</h2>
+            <p>{dict.about.sectorsIntro}</p>
           </div>
           <ul className={styles.sectorGrid}>
-            {SECTORS.items.map((item, index) => {
+            {dict.about.sectors.map((item, index) => {
               const Icon = SECTOR_ICONS[index] ?? Target;
               return (
                 <li key={item.title}>
@@ -107,11 +134,11 @@ export default function AboutPage() {
 
       <section className={styles.section} aria-labelledby="run-title">
         <div className={styles.sectionHead}>
-          <p className={styles.kicker}>Practice</p>
-          <h2 id="run-title">{RUN_BUILD.kicker}</h2>
+          <p className={styles.kicker}>{dict.about.practiceKicker}</p>
+          <h2 id="run-title">{dict.about.practiceTitle}</h2>
         </div>
         <ul className={styles.practiceGrid}>
-          {RUN_BUILD.items.map((item, index) => {
+          {dict.about.practice.map((item, index) => {
             const Icon = PRACTICE_ICONS[index] ?? Rocket;
             return (
               <li key={item.title}>
@@ -124,7 +151,9 @@ export default function AboutPage() {
         </ul>
       </section>
 
-      <CtaBand />
+      <CtaBand dict={dict} />
     </main>
   );
 }
+
+export const instant = false;

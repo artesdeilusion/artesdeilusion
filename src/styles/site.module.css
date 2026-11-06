@@ -73,6 +73,38 @@
   display: none;
 }
 
+.navAside {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.langSwitch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.langSwitch a {
+  padding: 0.3rem 0.45rem;
+  color: var(--ink-soft);
+  border: 1px solid transparent;
+  transition: color 140ms ease, border-color 140ms ease;
+}
+
+.langSwitch a:hover,
+.langSwitch a:focus-visible {
+  color: var(--ink);
+}
+
+.langActive {
+  color: var(--ink) !important;
+  border-color: var(--line) !important;
+}
+
 .navToggle {
   display: inline-flex;
   align-items: center;
@@ -180,6 +212,10 @@
 .mobileActive {
   box-shadow: inset 3px 0 0 var(--accent);
   padding-left: 0.75rem !important;
+}
+
+.mobileLang {
+  margin-top: 1.25rem;
 }
 
 .mobileMail {
@@ -1571,6 +1607,11 @@
 .notFoundHome:focus-visible {
   color: var(--accent);
   border-color: var(--accent);
+}
+
+.notFoundLangGap {
+  margin: 0 0.55rem;
+  color: var(--muted);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,9 +1,10 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
+import { en } from "@/i18n/messages/en";
 import { SITE } from "@/lib/site";
 
-export const alt = `${SITE.name} — ${SITE.tagline}`;
+export const alt = `${SITE.name} — ${en.hero.tagline}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -102,7 +103,7 @@ export default function Image() {
                 lineHeight: 1.05,
               }}
             >
-              {SITE.tagline}
+              {en.hero.tagline}
             </div>
             <div
               style={{
@@ -112,7 +113,7 @@ export default function Image() {
                 lineHeight: 1.35,
               }}
             >
-              {SITE.subtitle}
+              {en.hero.subtitle}
             </div>
             <div
               style={{

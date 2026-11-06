@@ -6,13 +6,24 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { BrandWordmark } from "@/components/brand-logo";
-import { NAV, SITE } from "@/lib/site";
+import { LanguageSwitcher } from "@/components/language-switcher";
+import { LocaleHtml } from "@/components/locale-html";
+import { localePath, type Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionary";
+import { NAV_HREFS, SITE } from "@/lib/site";
 import styles from "@/styles/site.module.css";
 
-export function SiteHeader() {
+export function SiteHeader({
+  locale,
+  dict,
+}: {
+  locale: Locale;
+  dict: Dictionary;
+}) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const home = localePath(locale);
 
   useEffect(() => {
     setMounted(true);
@@ -54,7 +65,7 @@ export function SiteHeader() {
         <div className={styles.mobileMenuBar}>
           <Link
             className={styles.navBrand}
-            href="/"
+            href={home}
             onClick={() => setOpen(false)}
           >
             <BrandWordmark size={28} />
@@ -62,7 +73,7 @@ export function SiteHeader() {
           <button
             type="button"
             className={styles.mobileClose}
-            aria-label="Close menu"
+            aria-label={dict.nav.closeMenu}
             onClick={() => setOpen(false)}
           >
             <X size={22} aria-hidden />
@@ -73,31 +84,38 @@ export function SiteHeader() {
           <ul>
             <li>
               <Link
-                href="/"
-                className={pathname === "/" ? styles.mobileActive : undefined}
+                href={home}
+                className={
+                  pathname === home ? styles.mobileActive : undefined
+                }
                 onClick={() => setOpen(false)}
               >
-                Home
+                {dict.nav.home}
               </Link>
             </li>
-            {NAV.map((item) => {
+            {NAV_HREFS.map((item) => {
+              const href = localePath(locale, item.href);
               const active =
-                pathname === item.href || pathname.startsWith(`${item.href}/`);
+                pathname === href || pathname.startsWith(`${href}/`);
               return (
                 <li key={item.href}>
                   <Link
-                    href={item.href}
+                    href={href}
                     className={active ? styles.mobileActive : undefined}
                     aria-current={active ? "page" : undefined}
                     onClick={() => setOpen(false)}
                   >
-                    {item.label}
+                    {dict.nav[item.key]}
                   </Link>
                 </li>
               );
             })}
           </ul>
         </nav>
+
+        <div className={styles.mobileLang}>
+          <LanguageSwitcher locale={locale} />
+        </div>
 
         <a className={styles.mobileMail} href={`mailto:${SITE.email}`}>
           {SITE.email}
@@ -108,10 +126,11 @@ export function SiteHeader() {
 
   return (
     <>
+      <LocaleHtml locale={locale} />
       <header className={styles.nav}>
         <Link
           className={styles.navBrand}
-          href="/"
+          href={home}
           onClick={() => setOpen(false)}
         >
           <BrandWordmark size={28} />
@@ -119,17 +138,18 @@ export function SiteHeader() {
 
         <nav className={styles.navDesktop} aria-label="Primary">
           <ul className={styles.navLinks}>
-            {NAV.map((item) => {
+            {NAV_HREFS.map((item) => {
+              const href = localePath(locale, item.href);
               const active =
-                pathname === item.href || pathname.startsWith(`${item.href}/`);
+                pathname === href || pathname.startsWith(`${href}/`);
               return (
                 <li key={item.href}>
                   <Link
-                    href={item.href}
+                    href={href}
                     className={active ? styles.navActive : undefined}
                     aria-current={active ? "page" : undefined}
                   >
-                    {item.label}
+                    {dict.nav[item.key]}
                   </Link>
                 </li>
               );
@@ -137,16 +157,23 @@ export function SiteHeader() {
           </ul>
         </nav>
 
-        <button
-          type="button"
-          className={styles.navToggle}
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          aria-label={open ? "Close menu" : "Open menu"}
-          onClick={() => setOpen((value) => !value)}
-        >
-          {open ? <X size={22} aria-hidden /> : <Menu size={22} aria-hidden />}
-        </button>
+        <div className={styles.navAside}>
+          <LanguageSwitcher locale={locale} />
+          <button
+            type="button"
+            className={styles.navToggle}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? dict.nav.closeMenu : dict.nav.openMenu}
+            onClick={() => setOpen((value) => !value)}
+          >
+            {open ? (
+              <X size={22} aria-hidden />
+            ) : (
+              <Menu size={22} aria-hidden />
+            )}
+          </button>
+        </div>
       </header>
       {menu}
     </>
