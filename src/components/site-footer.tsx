@@ -2,7 +2,7 @@ import Link from "next/link";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { localePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionary";
-import { NAV_HREFS, SITE } from "@/lib/site";
+import { SITE } from "@/lib/site";
 import styles from "@/styles/site.module.css";
 
 export function SiteFooter({
@@ -19,11 +19,7 @@ export function SiteFooter({
           ARTES
         </Link>
         <div className={styles.footerLinks}>
-          {NAV_HREFS.map((item) => (
-            <Link key={item.href} href={localePath(locale, item.href)}>
-              {dict.nav[item.key]}
-            </Link>
-          ))}
+          <Link href={localePath(locale, "/investors")}>Finance</Link>
           <LanguageSwitcher locale={locale} />
         </div>
       </div>
