@@ -223,37 +223,9 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section
-        id="investors"
-        className={styles.section}
-        aria-labelledby="home-investors"
-      >
-        <div className={styles.ZigRowReverse}>
-          <Reveal direction="left" className={styles.investorVisual}>
-            <div className={styles.investorBadge}>
-              <span className={styles.investorPulse} aria-hidden="true" />
-              <strong>{SITE.name}</strong>
-              <span>{SITE.email}</span>
-            </div>
-          </Reveal>
-          <Reveal direction="right" delay={120}>
-            <div className={styles.sectionHead}>
-              <p className={styles.kicker}>{dict.home.investorsKicker}</p>
-              <h2 id="home-investors">{dict.home.investorsTitle}</h2>
-              <p>{dict.home.investorsBody}</p>
-              <Link
-                className={styles.textLink}
-                href={localePath(locale, "/investors")}
-              >
-                {dict.home.investorsLink}
-                <ArrowRight size={15} aria-hidden />
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <CtaBand dict={dict} />
+      <div id="investors">
+        <CtaBand dict={dict} />
+      </div>
     </main>
   );
 }

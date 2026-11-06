@@ -3,7 +3,7 @@ export const tr = {
     title: "Artes de Ilusión — Yapay zekâ ve yazılım şirketleri",
     titleTemplate: "%s · Artes de Ilusión",
     description:
-      "Yapay zekâ ve yazılım şirketleri için sermaye ve operasyon — kenardan değil, işin içinden.",
+      "Yapay zekâ ve yazılım şirketleri kuran, büyüten ve işleten bağımsız bir teknoloji grubu.",
   },
   nav: {
     about: "Hakkımızda",
@@ -19,9 +19,9 @@ export const tr = {
     switchTo: "Dil",
   },
   hero: {
-    tagline: "Şirketlerin içindeyiz.",
+    tagline: "Fikri şirkete dönüştüren yapı.",
     subtitle:
-      "Yapay zekâ ve yazılıma sermaye koyuyoruz — sonra ürün ve operasyonu yönetmek için kalıyoruz.",
+      "Yapay zekâ, yazılım ve dijital ürünlerde şirket kurar; doğru yerde sermaye koyar; işi günlük olarak büyütürüz.",
     ctaPrimary: "Bize yazın",
     ctaSecondary: "Yatırımları görün",
   },
@@ -42,27 +42,27 @@ export const tr = {
   },
   home: {
     aboutKicker: "Hakkımızda",
-    aboutTitle: "Birçok şirketin başındaki operatörler.",
+    aboutTitle: "Sermayeden fazlasını taşıyan bir grup.",
     aboutBody:
-      "Artes de Ilusión, yapay zekâ, yazılım ve dijital ürün şirketlerinden oluşan bir portföyün başında durur. Sadece yatırım yapmayız — yönetir, kurar ve işletiriz.",
+      "Artes de Ilusión, yapay zekâ ve yazılım odaklı şirketleri kuran, büyüten ve işleten bir teknoloji grubudur. Masaya yalnız sermaye değil; ürün, ekip, dağıtım ve operasyon disiplini koyarız.",
     aboutLink: "Grubu tanıyın",
     quote:
-      "Sermayeyi koyar, ürün ve operasyon için odada kalırız.",
+      "İyi şirketler uzaktan izlenerek değil, yakından çalışılarak kurulur.",
     approachKicker: "Yaklaşım",
-    approachTitle: "İşi birlikte yürütebileceğimiz yere yatırırız.",
+    approachTitle: "Yakın duramayacağımız işe girmeyiz.",
     approachBody:
-      "Parayı, ürüne ve günlük işe yakın kalabileceğimiz şirketlere koyarız — özellikle yapay zekâ ve yazılımda.",
+      "Bir şirketin ürünü, ekibi ve işleyişi üzerinde gerçek katkı yaratamayacaksak, o iş bize uygun değildir.",
     allocLabel: "Dikkatimizin yaklaşık dağılımı",
     investmentsKicker: "Yatırımlar",
-    investmentsTitle: "Nasıl yatırım yapıyoruz.",
+    investmentsTitle: "Nasıl çalışıyoruz.",
     investmentsBody:
-      "Pasif bir fon değiliz; işletmeci bir grubuz. Sermaye ilişkinin başlangıcıdır — asıl katkımız, peşinden gelen işte görünür.",
+      "Yatırım bizim için bir finansal işlem değil; şirketin gidişatına ortak olma kararıdır. Bu yüzden az sayıda işe girer, girdiğimiz yerde derin çalışırız.",
     investmentsLink: "Yatırım yaklaşımımızı okuyun",
-    investorsKicker: "Yatırımcılar",
-    investorsTitle: "Şirketleri yöneten insanlarla çalışın.",
+    investorsKicker: "Partnerlik",
+    investorsTitle: "Uzun vadeli ortaklıklar için açık kapı.",
     investorsBody:
-      "Partnerler, kuran ve işleten ekiple muhatap olur — günden güne.",
-    investorsLink: "Yatırımcı ilişkileri",
+      "Sermaye, şirket veya birlikte büyütülebilecek bir fırsat getiriyorsanız doğrudan bize yazın.",
+    investorsLink: "Bize yazın",
   },
   allocation: {
     ai: "Yapay Zekâ",
@@ -72,16 +72,16 @@ export const tr = {
   },
   about: {
     kicker: "Hakkımızda",
-    title: "Birçok şirketin başındaki operatörler.",
-    body: "Artes de Ilusión, yapay zekâ, yazılım ve dijital ürün şirketlerinden oluşan bir portföyün başında durur. Yalnızca yatırım yapmayız — yönetir, kurar ve işletiriz. Zamanımızın çoğu işin kendisine gider: ürün, mühendislik, işe alım ve bir fikri kendi ayakları üzerinde duran bir şirkete dönüştürmenin yavaş işi.",
+    title: "Sermayeden fazlasını taşıyan bir grup.",
+    body: "Artes de Ilusión, yapay zekâ, yazılım ve dijital ürünlerde şirketler kuran ve işleten bağımsız bir teknoloji grubudur. Bizi ayıran şey yalnızca sermaye koymak değil; ürün, mühendislik, işe alım, dağıtım ve yönetim sorumluluğunu işin içinde taşımaktır.",
     whatWeDoTitle: "Ne yapıyoruz",
     whatWeDo:
-      "Yazılım ve yapay zekâda şirketler kuruyor ve işletiyoruz. Bazılarında kurucuyuz; bazılarında erken girip gerçek sorumluluk alıyoruz. Her iki durumda da ekip, çeyrekte bir arama yapan dışarıdan bir taraf değil; ürünü, mühendisliği ve günlük yürütmeyi grubun içinde taşır. Bir şirketin işe alıma, karara veya yeniden yazıma ihtiyacı olduğunda odadayız.",
+      "Yeni şirketleri sıfırdan başlatır, erken aşamadaki şirketlerde sorumluluk alır ve grubun içindeki işleri günlük olarak işletiriz. Çalışma biçimimiz sade: önce ürünü ve ekibi anlarız, sonra nerede gerçekten fark yaratabileceğimize bakarız.",
     whyAiTitle: "Yapay zekâ neden önemli",
     whyAi:
-      "Yapay zekâ, her şeye yapıştırdığımız bir etiket değil; işimizin çekirdeği. YZ şirketleri kuruyor, destekliyor ve grubun geri kalanıyla aynı standartlarda işletiyoruz: gerçek kullanıcılar, dürüst metrikler ve kimse bakmazken de çalışan yazılım. Bir kez akıllı görünen demolar değil, her gün sessizce bir işi bitiren ürünler ilgimizi çeker.",
+      "Yapay zekâ bizim için vitrin değil, yeni şirketlerin çalışma biçimini değiştiren temel bir altyapıdır. Dikkatimizi gösterişli demolardan çok, tekrar eden işleri çözen, kullanıcıya değer üreten ve zamanla savunulabilir hale gelen ürünlere veririz.",
     quote:
-      "Sermayeyi koyar, ürün ve operasyon için odada kalırız.",
+      "İyi şirketler uzaktan izlenerek değil, yakından çalışılarak kurulur.",
     pillars: [
       {
         title: "Liderlik",
@@ -153,10 +153,10 @@ export const tr = {
   },
   investments: {
     kicker: "Yatırımlar",
-    title: "Nasıl yatırım yapıyoruz, nasıl çalışıyoruz.",
+    title: "Nasıl seçer, nasıl çalışırız.",
     intro:
-      "Parayı ve zamanı nereye koyduğumuzu, girdikten sonra ne yaptığımızı ve kendimize tuttuğumuz standartları anlatan uzun bir okuma.",
-    lead: "Pasif bir fon değiliz; işletmeci bir grubuz. Sermaye ilişkinin başlangıcıdır, sonu değil. Asıl katkımız paradan sonra gelir — ürün kararlarında, işe alımda ve bir şirketi ayakta tutmanın sessiz, tekrarlanan işinde. Bundan sonrası, bunu gerçekte nasıl yaptığımız.",
+      "Hangi işe girdiğimizi, neden az sayıda taahhüt aldığımızı ve girdikten sonra nasıl çalıştığımızı anlatan kısa ama açık bir çerçeve.",
+    lead: "Bir şirkete yaklaşırken önce şu soruyu sorarız: burada yalnız sermaye değil, gerçek iş koyabilir miyiz? Cevap net değilse ilerlemeyiz. Artes de Ilusión için iyi fırsat, yalnız büyük pazar değil; ürününe, ekibine ve işleyişine katkı verebileceğimiz şirkettir.",
     sections: [
       {
         heading: "İşi yapabileceğimiz yere yatırırız",
@@ -232,14 +232,14 @@ export const tr = {
       "Birlikte kurma, sermaye ve yeni girişimler üzerine açık konuşmalar.",
     ],
     requestKicker: "Materyal talebi",
-    ctaTitle: "Yalnızca uzun vadeli partnerler.",
+    ctaTitle: "Doğru ortaklıklar için yazın.",
     ctaBody:
       "Sermaye veya birlikte işletmeye değer bir şirket getiriyorsanız bize yazın.",
   },
   cta: {
     kicker: "Bize yazın",
-    title: "Yalnızca uzun vadeli partnerler.",
-    body: "Sermaye veya birlikte işletmeye değer bir şirket getiriyorsanız bize yazın.",
+    title: "Doğru ortaklıklar için yazın.",
+    body: "Bir şirket, sermaye ortaklığı veya birlikte kurulacak yeni bir fırsat için doğrudan bize ulaşabilirsiniz.",
   },
   footer: {
     rights: "© 2026 Artes de Ilusion. Tüm hakları saklıdır.",

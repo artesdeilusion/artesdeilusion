@@ -3,7 +3,7 @@ export const en = {
     title: "Artes de Ilusión — AI and software companies",
     titleTemplate: "%s · Artes de Ilusión",
     description:
-      "Capital and operators for AI and software companies — in the work, not on the sidelines.",
+      "An independent technology group building, backing, and operating AI and software companies.",
   },
   nav: {
     about: "About",
@@ -19,9 +19,9 @@ export const en = {
     switchTo: "Language",
   },
   hero: {
-    tagline: "Inside the companies.",
+    tagline: "Where ideas become companies.",
     subtitle:
-      "We put capital into AI and software — then stay to lead product and operations.",
+      "We build AI, software, and digital product companies, commit capital where it matters, and stay close to the work that makes them grow.",
     ctaPrimary: "Get in touch",
     ctaSecondary: "View investments",
   },
@@ -42,27 +42,27 @@ export const en = {
   },
   home: {
     aboutKicker: "About",
-    aboutTitle: "Operators at the head of many companies.",
+    aboutTitle: "More than capital on the table.",
     aboutBody:
-      "Artes de Ilusión sits at the head of a portfolio of companies in AI, software, and digital products. We don't just invest — we lead, build, and run them.",
+      "Artes de Ilusión is a technology group focused on AI and software companies. We bring capital, product judgment, operating discipline, and the patience to build durable businesses.",
     aboutLink: "About the group",
     quote:
-      "We put capital in, then stay in the room for product and operations.",
+      "Good companies are built by staying close to the work.",
     approachKicker: "Approach",
-    approachTitle: "We invest where we can help run the work.",
+    approachTitle: "We only enter where we can be useful.",
     approachBody:
-      "We put money into companies where we can stay close to product and day-to-day work — especially in AI and software.",
+      "If we cannot make a real difference to product, team, or operations, the opportunity is not for us.",
     allocLabel: "Indicative allocation of attention",
     investmentsKicker: "Investments",
-    investmentsTitle: "How we invest.",
+    investmentsTitle: "How we work.",
     investmentsBody:
-      "We are an operating group, not a passive fund. Capital is where a relationship starts — most of what we bring shows up in the work that follows.",
+      "Investment is not a transaction for us; it is a decision to share responsibility for direction, product, and execution.",
     investmentsLink: "Read how we invest",
-    investorsKicker: "Investors",
-    investorsTitle: "Work with people who run the companies.",
+    investorsKicker: "Partnership",
+    investorsTitle: "A direct line for long-term partners.",
     investorsBody:
-      "Partners deal with the team that builds and operates — day to day.",
-    investorsLink: "Investor relations",
+      "If you bring capital, a company, or a serious opportunity to build together, write to us directly.",
+    investorsLink: "Write to us",
   },
   allocation: {
     ai: "Artificial Intelligence",
@@ -72,16 +72,16 @@ export const en = {
   },
   about: {
     kicker: "About us",
-    title: "Operators at the head of many companies.",
-    body: "Artes de Ilusión sits at the head of a portfolio of companies in AI, software, and digital products. We don't only invest — we lead, build, and run them. Most of our time goes into the work itself: product, engineering, hiring, and the slow job of turning an idea into a company that stands on its own.",
+    title: "More than capital on the table.",
+    body: "Artes de Ilusión is an independent technology group building and operating companies in AI, software, and digital products. We are closest to the parts that decide whether a company holds: product, engineering, hiring, distribution, and day-to-day operating rhythm.",
     whatWeDoTitle: "What we do",
     whatWeDo:
-      "We build and operate companies across software and AI. For some we are the founders; for others we come in early and take on real responsibility. Either way the team handles product, engineering, and day-to-day execution across the group, instead of sitting on the outside with a quarterly call. When a company needs a hire, a decision, or a rewrite, we are in the room for it.",
+      "We start new companies, take responsibility in early ones, and operate businesses inside the group. The work begins with understanding the product and team, then deciding where our involvement can change the outcome.",
     whyAiTitle: "Why AI matters to us",
     whyAi:
-      "AI is a core part of what we do, not a label we attach to everything. We start AI companies, back them, and run them with the same standards as the rest of the group: real users, honest metrics, and software that works when no one is watching. We are more interested in products that quietly do a job every day than in demos that look clever once.",
+      "AI is not a slogan for us; it is infrastructure for the next generation of software companies. We care less about impressive demos and more about products that solve recurring work, earn real usage, and become harder to replace over time.",
     quote:
-      "We put capital in, then stay in the room for product and operations.",
+      "Good companies are built by staying close to the work.",
     pillars: [
       {
         title: "Leadership",
@@ -153,10 +153,10 @@ export const en = {
   },
   investments: {
     kicker: "Investments",
-    title: "How we invest, and how we work.",
+    title: "How we choose, and how we work.",
     intro:
-      "A longer read on the way we choose where to put money and time, what we do once we are in, and the standards we hold ourselves to.",
-    lead: "We are an operating group, not a passive fund. Capital is where a relationship starts, not where it ends. Most of what we bring shows up after the money does — in the product decisions, the hiring, and the quiet, repeated work of making a company run. What follows is how we actually do it.",
+      "A clear frame for where we commit time and capital, why we keep the list short, and what happens after we enter.",
+    lead: "Before we enter a company, we ask one question: can we contribute real work, not only money? If the answer is not clear, we pass. For Artes de Ilusión, a good opportunity is not only a large market; it is a company where our product judgment, operating discipline, and network can improve the outcome.",
     sections: [
       {
         heading: "We invest where we can do the work",
@@ -232,14 +232,14 @@ export const en = {
       "Open conversations about co-building, capital, and new ventures.",
     ],
     requestKicker: "Request materials",
-    ctaTitle: "Long-term partners only.",
+    ctaTitle: "Write for the right partnership.",
     ctaBody:
       "If you bring capital or a company worth running together, write to us.",
   },
   cta: {
     kicker: "Write to us",
-    title: "Long-term partners only.",
-    body: "If you bring capital or a company worth running together, write to us.",
+    title: "Write for the right partnership.",
+    body: "For a company, capital partnership, or new venture worth building together, reach us directly.",
   },
   footer: {
     rights: "© 2026 Artes de Ilusion. All rights reserved.",
