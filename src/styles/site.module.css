@@ -71,6 +71,7 @@
 
 .navDesktop {
   display: none;
+  margin-left: auto;
 }
 
 .navAside {
