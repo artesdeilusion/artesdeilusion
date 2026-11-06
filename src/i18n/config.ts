@@ -7,6 +7,9 @@ export function isLocale(value: string): value is Locale {
 }
 
 export function localePath(locale: Locale, path = "/") {
+  if (path.startsWith("#")) {
+    return `/${locale}${path}`;
+  }
   const clean = path === "/" ? "" : path.startsWith("/") ? path : `/${path}`;
   return `/${locale}${clean}`;
 }

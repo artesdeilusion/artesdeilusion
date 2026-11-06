@@ -6,9 +6,9 @@ export const SITE = {
 } as const;
 
 export const NAV_HREFS = [
-  { key: "about", href: "/about" },
-  { key: "investments", href: "/investments" },
-  { key: "investors", href: "/investors" },
+  { key: "about", href: "#about" },
+  { key: "investments", href: "#investments" },
+  { key: "investors", href: "#investors" },
 ] as const;
 
 export const CITY_MARKERS = [

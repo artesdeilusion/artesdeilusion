@@ -23,10 +23,15 @@ export function SiteHeader({
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [activeHash, setActiveHash] = useState("");
   const home = localePath(locale);
 
   useEffect(() => {
     setMounted(true);
+    setActiveHash(window.location.hash);
+    const onHash = () => setActiveHash(window.location.hash);
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
   }, []);
 
   useEffect(() => {
@@ -66,7 +71,10 @@ export function SiteHeader({
           <Link
             className={styles.navBrand}
             href={home}
-            onClick={() => setOpen(false)}
+            onClick={() => {
+              setActiveHash("");
+              setOpen(false);
+            }}
           >
             <BrandWordmark size={28} />
           </Link>
@@ -86,24 +94,30 @@ export function SiteHeader({
               <Link
                 href={home}
                 className={
-                  pathname === home ? styles.mobileActive : undefined
+                  pathname === home && !activeHash
+                    ? styles.mobileActive
+                    : undefined
                 }
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  setActiveHash("");
+                  setOpen(false);
+                }}
               >
                 {dict.nav.home}
               </Link>
             </li>
             {NAV_HREFS.map((item) => {
               const href = localePath(locale, item.href);
-              const active =
-                pathname === href || pathname.startsWith(`${href}/`);
+              const active = pathname === home && activeHash === item.href;
               return (
                 <li key={item.href}>
                   <Link
                     href={href}
                     className={active ? styles.mobileActive : undefined}
-                    aria-current={active ? "page" : undefined}
-                    onClick={() => setOpen(false)}
+                    onClick={() => {
+                      setActiveHash(item.href);
+                      setOpen(false);
+                    }}
                   >
                     {dict.nav[item.key]}
                   </Link>
@@ -131,7 +145,10 @@ export function SiteHeader({
         <Link
           className={styles.navBrand}
           href={home}
-          onClick={() => setOpen(false)}
+          onClick={() => {
+            setActiveHash("");
+            setOpen(false);
+          }}
         >
           <BrandWordmark size={28} />
         </Link>
@@ -140,14 +157,13 @@ export function SiteHeader({
           <ul className={styles.navLinks}>
             {NAV_HREFS.map((item) => {
               const href = localePath(locale, item.href);
-              const active =
-                pathname === href || pathname.startsWith(`${href}/`);
+              const active = pathname === home && activeHash === item.href;
               return (
                 <li key={item.href}>
                   <Link
                     href={href}
                     className={active ? styles.navActive : undefined}
-                    aria-current={active ? "page" : undefined}
+                    onClick={() => setActiveHash(item.href)}
                   >
                     {dict.nav[item.key]}
                   </Link>

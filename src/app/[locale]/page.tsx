@@ -68,7 +68,7 @@ export default async function HomePage({
                 </a>
                 <Link
                   className={styles.ctaGhost}
-                  href={localePath(locale, "/investments")}
+                  href={localePath(locale, "#investments")}
                 >
                   {dict.hero.ctaSecondary}
                   <ArrowRight size={15} aria-hidden />
@@ -98,7 +98,11 @@ export default async function HomePage({
 
       <CitiesStrip dict={dict} />
 
-      <section className={styles.section} aria-labelledby="home-about">
+      <section
+        id="about"
+        className={styles.section}
+        aria-labelledby="home-about"
+      >
         <div className={styles.ZigRow}>
           <Reveal direction="left" className={styles.zigLeft}>
             <div className={styles.sectionHead}>
@@ -156,7 +160,11 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section className={styles.sectionAlt} aria-labelledby="home-investments">
+      <section
+        id="investments"
+        className={styles.sectionAlt}
+        aria-labelledby="home-investments"
+      >
         <div className={styles.sectionAltInner}>
           <Reveal direction="up">
             <div className={styles.sectionHead}>
@@ -215,7 +223,11 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section className={styles.section} aria-labelledby="home-investors">
+      <section
+        id="investors"
+        className={styles.section}
+        aria-labelledby="home-investors"
+      >
         <div className={styles.ZigRowReverse}>
           <Reveal direction="left" className={styles.investorVisual}>
             <div className={styles.investorBadge}>
