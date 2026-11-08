@@ -14,11 +14,67 @@ export const en = {
     closeMenu: "Close menu",
   },
   hero: {
-    tagline: "We build companies and invest in them.",
+    tagline: "We lead companies and invest in them.",
     subtitle:
       "Artes de Ilusión starts and runs its own AI and software companies, and invests in startups and service businesses outside the group. Capital for both comes from a small group of investors.",
     ctaPrimary: "Contact",
     ctaSecondary: "Investments",
+    lineA: "We lead",
+    lineB: "companies",
+    closing: "and invest in them.",
+    scroll: "Scroll",
+    ghost: "Ilusión",
+    phases: ["One group", "Five companies", "Led and backed"],
+    portfolio: {
+      aria: "Our companies",
+      items: [
+        {
+          tag: "Neighbourhood",
+          title: "Standy",
+          caption: "Bakeries, cafés and patisseries near you, in one place.",
+          href: "https://standyroutes.com",
+          markFont: "barlow",
+          image:
+            "https://plus.unsplash.com/premium_photo-1661954531673-440d23a6eb79?auto=format&fit=crop&w=2400&q=80",
+        },
+        {
+          tag: "Voice and messaging",
+          title: "Callinte",
+          caption: "Agents that answer inbound calls and messages from your own data.",
+          href: "https://callinte.com",
+          mark: "/brands/callinte-white.svg",
+          image:
+            "https://images.unsplash.com/photo-1621293954908-907159247fc8?auto=format&fit=crop&w=2400&q=80",
+        },
+        {
+          tag: "Turkish law",
+          title: "HukukLabs",
+          caption: "AI for Turkish law, with the statute and decision behind every answer.",
+          href: "https://hukuklabs.com",
+          mark: "/brands/hukuklabs.svg",
+          image:
+            "https://images.unsplash.com/photo-1436450412740-6b988f486c6b?auto=format&fit=crop&w=2400&q=80",
+        },
+        {
+          tag: "Food labels",
+          title: "fregie",
+          caption: "Scan a barcode and see if a product fits your diet and allergens.",
+          href: "https://fregie.app",
+          markFont: "syne",
+          image:
+            "https://plus.unsplash.com/premium_photo-1742244062558-24dd499c6980?auto=format&fit=crop&w=2400&q=80",
+        },
+        {
+          tag: "Marina services",
+          title: "Marinawash",
+          caption: "Boat washing and care, done at the marina.",
+          href: "https://marinawash.com",
+          mark: "/brands/marinawash.svg",
+          image:
+            "https://plus.unsplash.com/premium_photo-1661963566623-e55aa59ea60e?auto=format&fit=crop&w=2400&q=80",
+        },
+      ],
+    },
   },
   globe: {
     kicker: "Cities",
@@ -26,15 +82,6 @@ export const en = {
     body: "Our teams and companies operate from seven cities.",
     aria: "Cities we work in",
     localTime: "Local time",
-  },
-  snapshot: {
-    aria: "Group snapshot",
-    items: [
-      { value: "Build", label: "Companies we start and run" },
-      { value: "Back", label: "Startups and service businesses we invest in" },
-      { value: "7", label: "Cities" },
-      { value: "AI", label: "Main focus" },
-    ],
   },
   compare: {
     kicker: "Two ways we invest",

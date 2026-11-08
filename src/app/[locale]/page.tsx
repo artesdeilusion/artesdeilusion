@@ -1,11 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { notFound } from "next/navigation";
 import { CitiesStrip } from "@/components/cities-strip";
 import { AllocationBar } from "@/components/home/allocation-bar";
 import { CompareTable } from "@/components/home/compare-table";
-import { HeroFacts } from "@/components/home/hero-facts";
+import { HeroScene } from "@/components/home/hero-scene";
 import { InvestorCta } from "@/components/home/investor-cta";
 import { Principles } from "@/components/home/principles";
 import { Reveal } from "@/components/reveal";
@@ -22,37 +21,10 @@ export default async function HomePage({
   if (!isLocale(raw)) notFound();
   const locale = raw;
   const dict = getDictionary(locale);
-  const words = dict.hero.tagline.split(" ");
 
   return (
     <main id="top" className={styles.main}>
-      <section className={styles.hero} aria-labelledby="brand">
-        <div className={styles.heroStage} aria-hidden="true">
-          <Image
-            src="/cities/hero.jpg"
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className={styles.heroPhoto}
-          />
-          <span className={styles.heroShade} />
-          <span className={styles.heroGrid} />
-          <span className={styles.heroGlow} />
-        </div>
-
-        <div className={styles.heroInner}>
-          <h1 id="brand" className={styles.heroTitle} aria-label={dict.hero.tagline}>
-            {words.map((word, i) => (
-              <span key={i} className={styles.heroWord} aria-hidden="true">
-                <span style={{ animationDelay: `${120 + i * 70}ms` }}>{word}</span>
-              </span>
-            ))}
-          </h1>
-          <p className={styles.heroLede}>{dict.hero.subtitle}</p>
-          <HeroFacts dict={dict} />
-        </div>
-      </section>
+      <HeroScene dict={dict} />
 
       <CitiesStrip dict={dict} />
 
